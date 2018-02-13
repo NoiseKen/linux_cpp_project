@@ -1,0 +1,103 @@
+# Copyright (c) 2017, Ken Wang
+#
+# Compiling pkg requires : None
+# 
+
+LIBRARY	= ../library
+LIB_INC	= $(LIBRARY)/include
+LIB_SRC = $(LIBRARY)/src
+NVM_LIB = $(LIBRARY)/NVMe
+IOEX_LIB = ./ioex_cmd
+FOP_LIB  = ./fop_cmd
+
+DIST = $(shell uname -r)
+INCLUDES = -I./ -I$(LIB_INC) -I$(NVM_LIB) -I$(NVM_LIB)/legacy -I$(NVM_LIB)/sequence -I $(IOEX_LIB) -I $(FOP_LIB)
+
+DFLAGS = -std=c++0x -D_GLIBCXX_USE_CXX11_ABI=0
+LFLAGS = -lrt
+
+# source files.
+SRC =	main.cpp	\
+	console_function.cpp	\
+	fun_action.cpp	\
+	fun_ioex.cpp	\
+	action_base.cpp	\
+	action_read.cpp	\
+	action_write.cpp	\
+	action_reset.cpp	\
+	action_dump.cpp	\
+	file_operation.cpp	\
+	$(LIB_SRC)/io_ctrl.cpp	\
+	$(LIB_SRC)/disk_io.cpp	\
+	$(LIB_SRC)/disk_ioex.cpp	\
+	$(NVM_LIB)/nvme_ioex.cpp	\
+	$(NVM_LIB)/nvme_ioex_seq.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_fill_lba.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_fill_const.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_fill_increase.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_fill_decrease.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_dummy_read.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_rc.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_rc_const.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_rc_lba.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_rc_increase.cpp	\
+	$(NVM_LIB)/legacy/nvme_task_rc_decrease.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_fill_lba.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_fill_const.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_fill_increase.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_fill_decrease.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_dummy_read.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_rc.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_rc_const.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_rc_lba.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_rc_increase.cpp	\
+	$(NVM_LIB)/sequence/nvme_seq_rc_decrease.cpp	\
+	$(IOEX_LIB)/ioex_cmd.cpp	\
+	$(IOEX_LIB)/ioex_dummy_read.cpp	\
+	$(IOEX_LIB)/ioex_fill.cpp	\
+	$(IOEX_LIB)/ioex_compare.cpp	\
+	$(FOP_LIB)/fop_cmd.cpp	\
+	$(FOP_LIB)/fop_read.cpp	\
+	$(FOP_LIB)/fop_write.cpp	\
+	$(LIB_SRC)/thread_locker.cpp	\
+	$(LIB_SRC)/async_cmd.cpp	\
+	$(LIB_SRC)/async_rw_handler.cpp	\
+	$(LIB_SRC)/extension_string.cpp	\
+	$(LIB_SRC)/legacy_string.cpp	\
+	$(LIB_SRC)/global_variable.cpp	\
+	$(LIB_SRC)/console_arguments.cpp	\
+	$(LIB_SRC)/sys_ctrl.cpp	\
+	$(LIB_SRC)/file_ctrl.cpp
+	#$(LIB_SRC)/utils.c
+
+#OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
+
+APP	= NVMeCtrlRW
+
+OUT = ./$(APP).a
+
+# include directories
+#INCLUDES = -I. -I../include/ -I/usr/local/include
+
+# compiler
+CCC = g++
+
+.SUFFIXES: .cpp
+
+default: dep $(OUT)
+
+.cpp.o:
+	$(CCC) $(INCLUDES) $(DFLAGS) -c $< -o $@ $(LFLAGS)
+
+$(OUT): $(OBJ)
+	ar rcs $(OUT) $(OBJ)
+
+depend: dep
+
+dep:
+	makedepend -- $(CFLAGS) -- $(INCLUDES) $(SRC)
+
+clean:
+	rm -f $(OBJ) $(OUT) Makefile.bak
+

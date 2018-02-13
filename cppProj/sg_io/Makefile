@@ -1,0 +1,15 @@
+# Copyright (c) 2017, Ken Wang
+#
+# Compiling pkg requires : None
+# 
+
+CFLAG = -shared -fPIC -Wall
+LIB_NAME = sg_io.so
+
+all:make_lib
+
+make_lib:sg_io.c
+	$(CC) -o $(LIB_NAME) $(CFLAG) sg_io.c
+
+clean:
+	rm -f *.so

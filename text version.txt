@@ -1,0 +1,65 @@
+********************************
+First enable the root account by setting a password
+********************************
+sudo passwd	
+
+
+********************************
+Then enable manual login in LightDM (assuming 14.04):
+********************************
+sudo tee /usr/share/lightdm/lightdm.conf.d/50-allow-manual.conf <<EOF
+[SeatDefaults]
+greeter-show-manual-login=true
+EOF
+
+
+********************************
+Restart LightDM:
+********************************
+sudo service lightdm restart
+
+
+********************************
+Login as root. You'll have to type both username and password. To enable autologin for root:
+********************************
+sudo tee /usr/share/lightdm/lightdm.conf.d/51-auto-root.conf <<EOF
+[SeatDefaults]
+autologin-user=root
+autologin-user-timeout=0
+user-session=ubuntu
+greeter-session=unity-greeter
+EOF
+service lightdm restart
+
+********************************
+Seen problem
+********************************
+sudo mv /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
+add "tty -s &&" in fornt of last line(mesg n) in /root/.profile
+
+
+********************************
+runit package fail
+********************************
+sudo mv /var/lib/dpkg/info /var/lib/dpkg/info.bak
+sudo mkdir /var/lib/dpkg/info 
+sudo apt-get update
+
+apt-get -f install xxx
+sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info.bak
+
+sudo rm -rf /var/lib/dpkg/info
+sudo mv /var/lib/dpkg/info.bak /var/lib/dpkg/info
+
+********************************
+Subversion 'Default' password issue
+add one line below [auth] in subersion config file
+********************************
+gedit ~/.subversion/config
+[auth] 
+password-stores =
+
+********************************
+Auto run application after X windows active
+********************************
+startup application

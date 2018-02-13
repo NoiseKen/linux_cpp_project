@@ -1,0 +1,31 @@
+AutoREG: (g=0): rw=read, bs=64K-64K/64K-64K/64K-64K, ioengine=libaio, iodepth=32
+...
+AutoREG: (g=0): rw=read, bs=64K-64K/64K-64K/64K-64K, ioengine=libaio, iodepth=32
+fio-2.1.3
+Starting 4 processes
+
+AutoREG: (groupid=0, jobs=4): err= 0: pid=2082: Fri Feb  5 14:18:40 2016
+  read : io=30370MB, bw=518234KB/s, iops=8097, runt= 60009msec
+    slat (usec): min=3, max=156, avg= 5.40, stdev= 2.61
+    clat (msec): min=5, max=333, avg=15.80, stdev=14.45
+     lat (msec): min=5, max=333, avg=15.81, stdev=14.45
+    clat percentiles (msec):
+     |  1.00th=[    7],  5.00th=[    7], 10.00th=[    7], 20.00th=[    8],
+     | 30.00th=[    8], 40.00th=[    9], 50.00th=[   10], 60.00th=[   12],
+     | 70.00th=[   13], 80.00th=[   19], 90.00th=[   39], 95.00th=[   48],
+     | 99.00th=[   64], 99.50th=[   73], 99.90th=[  102], 99.95th=[  124],
+     | 99.99th=[  182]
+    bw (KB  /s): min=31744, max=266880, per=24.91%, avg=129081.10, stdev=84616.48
+    lat (msec) : 10=52.56%, 20=28.14%, 50=15.40%, 100=3.80%, 250=0.10%
+    lat (msec) : 500=0.01%
+  cpu          : usr=0.74%, sys=1.82%, ctx=473207, majf=0, minf=2086
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued    : total=r=485917/w=0/d=0, short=r=0/w=0/d=0
+
+Run status group 0 (all jobs):
+   READ: io=30370MB, aggrb=518233KB/s, minb=518233KB/s, maxb=518233KB/s, mint=60009msec, maxt=60009msec
+
+Disk stats (read/write):
+  nvme0n1: ios=484629/0, merge=0/0, ticks=7663784/0, in_queue=7664096, util=99.89%

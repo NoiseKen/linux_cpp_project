@@ -1,0 +1,271 @@
+Parsing cmd line: ./tnvme -summary -v1.2 
+0: GrpPciRegisters: PCI registers syntactic
+    0.0.0: Test: Validate all PCI registers syntactically
+1: GrpCtrlRegisters: Controller registers syntactic
+    0.0.0: Test: Validate all controller registers syntactically
+    1.0.0: Test: Verify approp registers are reset to default values
+    2.0.0: Test: Test value of CAP.CSS field in CAP register offset (0x00)
+    3.0.0: Test: Read value of CAP.DSTRD field in CAP register offset (0x00)
+    4.0.0: Test: Test value of CAP.TO field of CAP register offset (0x00)
+    5.0.0: Test: Read value of CAP.AMS field in CAP register offset (0x00)
+    6.0.0: Test: Read value of CAP.CQR field in CAP register offset (0x00)
+    7.0.0: Test: Test value of CAP.MQES field in CAP register offset (0x00)
+    8.0.0: Test: Test value of CC.IOCQES field of CC register offset (0x14)
+    9.0.0: Test: Test value of CC.IOSQES field in CC register offset (0x14)
+    10.0.0: Test: Test value of CC.SHN field of CC register offset (0x14)
+    11.0.0: Test: Test value of CC.AMS field in CC register offset (0x14)
+    12.0.0: Test: Test value of CC.CSS field of CC register offset (0x14)
+    13.0.0: Test: Test value of CC.EN field of the CC register offset (0x14)
+    14.0.0: Test: Test value of CSTS.SHST field of CSTS register offset (0x1C)
+    15.0.0: Test: Read value of CSTS.CFS bit of CSTS register offset (0x1C)
+    16.0.0: Test: Read value of CAP.MPSMAX and CAP.MPSMIN and compare
+    17.0.0: Test: Test value of INTMS & INTMC register offset (0x0C & 0x10)
+2: GrpBasicInit: Basic Initialization
+    0.0.0: Test: Create an ACQ & ASQ
+    0.0.1: Test: Create contiguous IOCQ(poll) and IOSQ's
+    0.0.2: Test: Create discontiguous IOCQ(poll) and IOSQ's
+    0.0.3: Test: Write a well known data pattern to media
+    0.0.4: Test: Verify a well known data pattern from media
+    0.0.5: Test: Delete contiguous IOCQ and IOSQ's
+    0.0.6: Test: Delete discontiguous IOCQ and IOSQ's
+    0.0.7: Test: Create contiguous IOCQ(irq) and IOSQ's
+    0.0.8: Test: Create discontiguous IOCQ(irq) and IOSQ's
+    0.0.9: Test: Write a well known data pattern to media
+    0.0.10: Test: Verify a well known data pattern from media
+    0.0.11: Test: Delete contiguous IOCQ and IOSQ's
+    0.0.12: Test: Delete discontiguous IOCQ and IOSQ's
+3: GrpResets: All Ctrl'r reset related tests
+    0.0.0: Test: Ctrlr resets causes IOSQ & IOCQ's to be deleted
+    1.0.0: Test: Ctrlr resets do not affect ACQ or ASQ.
+    2.0.0: Test: Proper behavior during controller level reset
+    3.0.0: Test: Proper behavior during function level reset
+    4.0.0: Test: Proper behavior during NVM subsystem reset
+4: GrpGeneralCmds: General command tests.
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue illegal nvm cmd set opcodes.
+    0.2.0: Test: Issue illegal admin cmd set opcodes.
+    0.3.0: Test: Verify all CID values are accepted in ASQ.
+    1.0.0: Test: Verify all CID values accepted in IOSQs.
+5: GrpQueues: Validates general queue functionality
+    0.0.0: Test: Validate new ASQ/ACQ pointer initial states
+    1.0.0: Test: Validate admin Q doorbell rollover when Q's same size
+    2.0.0: Test: Validate admin Q doorbell rollover when Q's different size
+    3.0.0: Test: Issue cmds until both ASQ and ACQ fill up.
+    4.0.0: Test: Create IOQ's out of order.
+    5.0.0: Test: Create resources needed by subsequent tests
+    5.1.0: Test: Validate IOQ doorbell rollover when IOQ's same size
+    5.2.0: Test: Validate IOQ doorbell rollover when IOQ's different size
+    5.3.0: Test: Create many IOSQ to IOCQ associations
+    5.4.0: Test: Issue cmds until both IOSQ and IOCQ fill up.
+    5.5.0: Test: Verify multiple cmds issued simultaneously.
+    5.6.0: Test: Delete admin Q's with DeleteIOQ cmds.
+    5.7.0: Test: Create and use the max allowed IOCQ/IOSQ's
+    5.8.0: Test: Create IOCQ/IOSQ pairs while mismatch Q sizes.
+    5.9.0: Test: Vary the QID pair's.
+    5.10.0: Test: Create admin Q's with CreateIOQ cmds.
+6: GrpNVMReadCmd: NVM cmd set read cmd tests
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue read and cause SC=LBA Out of Range on bare namspcs
+    0.2.0: Test: Issue read and cause SC=Invalid Namspc or Format
+    0.3.0: Test: Set unsupported/rsvd fields in cmd
+    0.4.0: Test: Verify protection info (PRINFO) is ignored for bare namspc
+    0.5.0: Test: Verify metadata ptr is not used for bare namspc
+    0.6.0: Test: Verify Forced Unit Access (FUA)
+    0.7.0: Test: Verify limited retry 
+    0.8.0: Test: Verify metadata ptr is not used for meta namspc
+    1.0.0: Test: Issue read and cause SC = LBA Out of Range on meta namspcs
+    2.0.0: Test: Verify protection info (PRINFO) is ignored for meta namspc
+7: GrpNVMWriteCmd: NVM cmd set write cmd tests
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue write and cause SC=LBA Out of Range on bare namspcs
+    0.2.0: Test: Issue write and cause SC=Invalid Namspc or Format
+    0.3.0: Test: Set unsupported/rsvd fields in write cmd
+    0.4.0: Test: Verify protection info (PRINFO) is ignored for bare namspc
+    0.5.0: Test: Verify metadata ptr is not used for bare namspc
+    0.6.0: Test: Verify Forced Unit Access (FUA)
+    0.7.0: Test: Verify limited retry 
+    0.8.0: Test: Verify metadata ptr is not used for meta namspc
+    1.0.0: Test: Issue write and cause SC=LBA Out of Range on meta namspcs
+    2.0.0: Test: Verify protection info (PRINFO) is ignored for meta namspc
+8: GrpNVMWriteReadCombo: NVM cmd set write/read combo tests.
+    0.0.0: Test: Vary buff offset for single-page/multi-blk against PRP1/PRP2.
+    1.0.0: Test: Vary buff offset for dual-page/multi-blk against PRP1/PRP2.
+    2.0.0: Test: Vary buff offset for multi-page/multi-blk against PRP1/PRP2.
+    3.0.0: Test: Create resources needed by subsequent tests
+    3.1.0: Test: Vary buff offset for single-page/single-blk against PRP1/PRP2.
+    3.2.0: Test: Vary starting LBA for bare namspcs.
+    3.3.0: Test: Verify all values of Number of Log Blk (NLB) for bare namspcs
+    3.4.0: Test: Verify dataset mgmt operations.
+    4.0.0: Test: Vary starting LBA for meta namspcs
+    5.0.0: Test: Verify all values of Number of Log Blk (NLB) for meta namspcs
+    6.0.0: Test: Vary buff offset for single-page/multi-blk against PRP1/PRP2.
+9: GrpNVMFlushCmd: Validates NVM cmd set flush cmd tests
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue flush and cause SC=Invalid Namspc or Format
+    0.2.0: Test: Set unsupported/rsvd fields in cmd
+    0.3.0: Test: Verify flush functionality for bare namspcs
+    1.0.0: Test: Verify flush functionality for meta namspcs
+10: GrpInterrupts: MSI-single, MSI-multi, MSI-X test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Assoc illegal MSI-X IRQ to cause SC=Invalid interrupt vector
+    0.2.0: Test: Verify correct behavior during partial IOCQ reaping for MSI-X
+    0.3.0: Test: Create and use the max allowed IOCQ/IOSQ's under MSI-X (1:1)
+    0.4.0: Test: Create and use the max allowed IOCQ/IOSQ's under MSI-X (many:1)
+11: GrpNVMWriteUncorrectCmd: NVM cmd set compare test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue write uncorrectable and attempt a read on the LBA
+12: GrpNVMDatasetMgmtCmd: NVM cmd set data set mgmt tests
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue dataset mgmt and cause SC=Invalid Namspc or Format
+    0.2.0: Test: Set unsupported/rsvd fields in cmd
+    0.3.0: Test: Verify all combos of PRP1, PRP2, and Number of Ranges (NR)
+    0.4.0: Test: Verify all combinations of attributes for all ranges
+    0.5.0: Test: Issue dataset mgmt single and verify NUSE
+    0.6.0: Test: Verify basic operation of Dataset Management command
+    0.7.0: Test: Deallocate memory with Dataset Management command AD=1
+13: GrpNVMCompareCmd: NVM cmd set compare test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Verify proper operation of the compare nvm command
+    0.2.0: Test: Verify proper setting of Compare Fail status
+    0.3.0: Test: Verify proper setting of Compare Fail status
+14: GrpAdminDeleteIOCQCmd: Admin cmd set delete IOCQ test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Set unsupported/rsvd fields in cmd
+    1.0.0: Test: Issue DeleteIOCQ and cause SC = Invalid queue identifier
+    2.0.0: Test: Delete all IOCQ's at the same time
+    3.0.0: Test: Delete an IOCQ that is full of cmds.
+    4.0.0: Test: Delete an IOCQ of read cmds.
+    5.0.0: Test: Delete an IOCQ before IOSQ.
+15: GrpAdminDeleteIOSQCmd: Admin cmd set delete IOSQ test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Set unsupported/rsvd fields in cmd
+    1.0.0: Test: Issue DeleteIOSQ and cause SC = Invalid queue identifier
+16: GrpAdminCreateIOCQCmd: Admin cmd set create IOCQ test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Set unsupported/rsvd fields in cmd
+    1.0.0: Test: Issue CreateIOCQ cause SC = Invalid queue identifier
+    2.0.0: Test: Issue CreateIOCQ cause SC = Maximum queue size exceeded
+17: GrpAdminCreateIOSQCmd: Admin cmd set create IOSQ test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Set unsupported/rsvd fields in cmd
+    0.2.0: Test: Issue CreateIOSQ cause SC=Maximum queue size exceeded
+    0.3.0: Test: Issue CreateIOSQ cause SC=Completion queue invalid
+    1.0.0: Test: Issue CreateIOSQ cause SC = Invalid queue identifier
+    2.0.0: Test: Issue CreateIOSQ and verify queue priority is accepted.
+18: GrpAdminCreateIOQCmd: Admin cmd set common create IOCQ/IOSQ test cases
+    0.0.0: Test: Create IOQ's backed by contiguous memory < 1 page
+    1.0.0: Test: Create IOQ's backed by discontigous memory < 1 page
+    2.0.0: Test: Create IOQ's backed by contigous memory = 1 page
+    3.0.0: Test: Create IOQ's backed by discontigous memory = 1 page
+    4.0.0: Test: Create IOQ's backed by contiguous memory > 1 page
+    5.0.0: Test: Create IOQ's backed by discontigous memory > 1 page
+19: GrpAdminGetLogPgCmd: Admin cmd set get log page test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Request data using only PRP1 only
+    0.2.0: Test: Request data using PRP1 and PRP2
+    0.3.0: Test: Set unsupported/rsvd fields in cmd
+    0.4.0: Test: Verify GetLogPage NUMD value is adhered
+    0.5.0: Test: Issue GetLogPage for NVM cmd set, & cause SC=Invalid Log Page
+    0.6.0: Test: Issue GetLogPage and cause SC=Invalid Namspc or Format
+    0.7.0: Test: Get mandatory error info log page
+    0.8.0: Test: Get mandatory SMART log page
+    0.9.0: Test: Get mandatory FW Slot log page
+    0.10.0: Test: Issue GetLogPage for NVM cmd set, & cause SC=Invalid Log Page
+20: GrpAdminIdentifyCmd: Admin cmd set identify test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Request data using only PRP1 only
+    0.2.0: Test: Request data using PRP1 and PRP2
+    0.3.0: Test: Set unsupported/rsvd fields in cmd
+    0.4.0: Test: Issue Identify and cause SC=Invalid Namspc or Format
+21: GrpAdminSetFeatCmd: Admin cmd set features test cases w/o get features
+    0.0.0: Test: Issue reserved FID's; SC = Invalid field in cmd
+    1.0.0: Test: Issue a setFeaturesCmd with overlapping LBA ranges
+22: GrpAdminGetFeatCmd: Admin cmd set features test cases w/o get features
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Issue reserved FID's; SC = Invalid field in cmd
+    0.2.0: Test: Set unsupported/rsvd fields in cmd
+23: GrpAdminSetGetFeatCombo: Admin cmd set/get features utilizing both cmds for
+    0.0.0: Test: Verify changes are allowed on FID = Arbitration
+    1.0.0: Test: Verify changes are allowed on FID = Pwr mgmt
+    2.0.0: Test: Verify changes are allowed on FID = Temperature threshold
+    3.0.0: Test: Verify changes are allowed on FID=Error recovery 1.2
+    4.0.0: Test: Verify changes are allowed on FID=Volatile write cache
+    5.0.0: Test: Verify changes are allowed on FID = IRQ coalescing
+    6.0.0: Test: Verify changes are allowed on FID = IRQ vector
+    7.0.0: Test: Verify changes are allowed on FID = Write atomicity
+    8.0.0: Test: Verify changes are allowed on FID = Async write config
+    9.0.0: Test: Verify changes are allowed on FID = Number of Queues
+24: GrpAdminAsyncCmd: Admin cmd set async event request test cases.
+    0.0.0: Test: Set unsupported/rsvd fields in cmd
+    1.0.0: Test: Verify an async event is aborted by reset
+    2.0.0: Test: Verify the max async events can be created.
+    3.0.0: Test: Verify async events are masked.
+    4.0.0: Test: Verify async events are queued.
+    5.0.0: Test: Verify proper setting of Async Req Limit Exceeded status
+25: GrpReservationsHostA: Reservation Commands HostA
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Register a reservation
+    0.2.0: Test: Register a reservation
+    0.3.0: Test: Register a reservation
+    0.4.0: Test: Register a reservation
+26: GrpReservationsHostB: Reservation Commands For Second Host (dual port)
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Register a reservation
+    0.2.0: Test: Register a reservation
+27: GrpAdminNamespaceManagement: Namespace Management
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Delete all current namespaces and verify no longer attached
+    0.2.0: Test: Create CTRLR.NN namespaces and attach to all ctlrs in subsystem
+28: GrpNVMFeatures: Tests for IOL NVMe conformance group 3
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Test proper use of metadata as a separate buffer
+    1.0.0: Test: Test proper values of RWL power descriptor
+    2.0.0: Test: Test proper values of RWT power descriptor
+    3.0.0: Test: Test proper values of RRL power descriptor
+    4.0.0: Test: Test proper values of RRT power descriptor
+    5.0.0: Test: Test use of the Power Management Feature
+29: GrpMemStructs: Tests for IOL NVMe conformance group 5
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Verify proper format of PBAO field of PRP entry
+    0.2.0: Test: Verify proper use of status field in completion queue entries
+    1.0.0: Test: Setup resources for generic command status tests
+    1.1.0: Test: Verify proper setting of Successful Completion status
+    1.2.0: Test: Verify proper setting of Invalid Command Opcode status
+    1.3.0: Test: Verify proper setting of Invalid Field in Command status
+    1.4.0: Test: Verify proper setting of Command ID Conflict status
+    1.5.0: Test: Verify proper setting of Data Transfer Error status
+    1.6.0: Test: Verify proper setting of Cmd Aborted due to Power Loss status
+    1.7.0: Test: Verify proper setting of Internal Error status
+    1.8.0: Test: Verify proper setting of Command Abort Request status
+    1.9.0: Test: Verify proper setting of Cmd Aborted due to SQ Deletion status
+    1.10.0: Test: Verify proper setting of Cmd Aborted due to Failed Fuse status
+    1.11.0: Test: Verify proper setting of Missing Fused Command status
+    1.12.0: Test: Verify proper setting of Invalid Namespace or Format status
+    1.13.0: Test: Verify proper setting of Command Sequence Error status
+    1.14.0: Test: Verify proper setting of Invalid SGL Last Segment status
+    1.15.0: Test: Verify proper setting of Invalid Num SGL Descriptors status
+    1.16.0: Test: Verify proper setting of Data SGL Length Invalid status
+    1.17.0: Test: Verify proper setting of Metadata SGL Length Invalid status
+    1.18.0: Test: Verify proper setting of SGL Descriptor Type Invalid status
+    2.0.0: Test: Create resources needed by subsequent tests
+    2.1.0: Test: Verify proper format of completion queue entries
+    3.0.0: Test: Verify proper deallocation of unwritten logical blocks
+30: GrpAdminFWActivateCmd: Admin cmd set firmware activate test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Verify proper setting of Invalid Firmware Slot status
+31: GrpNVMWriteZeroesCmd: NVM cmd set write zeroes cmd tests
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Verify proper operation of the write zeroes nvm command
+32: GrpDebug: Tests for debugging device and getting caps
+    0.0.0: Test: This is a test to get all of the supported optional cmds of dut
+    1.0.0: Test: This is a test to get all of the fields of the CAP register off
+    2.0.0: Test: Test to get all fields of the identify ctrlr data structure
+    3.0.0: Test: Test to get all fields of the identify namspc data structure
+    4.0.0: Test: This is a test to read all fields of the AQA, ASQ, and ACQ
+    5.0.0: Test: Test to get Power State Descriptor fields
+33: GrpAdminAbortCmd: Admin cmd set abort test cases
+    0.0.0: Test: Basic operation of command abortion
+    1.0.0: Test: Basic operation of command abortion
+34: GrpAdminFormatNVMCmd: Admin cmd set identify test cases
+    0.0.0: Test: Create resources needed by subsequent tests
+    0.1.0: Test: Verify basic operation of the format NVM admin command

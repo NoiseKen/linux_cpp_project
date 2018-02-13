@@ -1,0 +1,15 @@
+A    fwbin/2260_CID.BIN
+A    fwbin/2260_MPISP_Package.bin
+A    fwbin/2260_ShimMPISP_Package.bin
+A    fwbin/2260_ISP_Package.bin
+Checked out revision 1414.
+0
+0
+svn repo=https://svn01/DT1/trunk/BX-400/Firmware/tags/bin
+local ver = 0
+repo ver =  1333
+repo version > local version
+check out new version bin file!!
+svn co https://svn01/DT1/trunk/BX-400/Firmware/tags/bin /root/work/cppProj/auto_reg/fwbin
+Checked out revision 1414.
+0

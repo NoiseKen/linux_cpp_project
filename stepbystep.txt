@@ -1,0 +1,10 @@
+1. replace sources.list to /etc/apt
+2. install g++ ==> sudo apt-get install g++
+3. install libboost ==> sudo apt-get install libboost-all-dev 
+		    &   sudo apt-get install build-essential
+4. install libxml ==> sudo apt-get install libxml++2.6-dev
+5. install runit ==> sudo apt-get install runit
+6. change to directory tnvme-master
+7. tnvme-master/dnvme.h, row #22, 23 change from dnvme/XX to dnvme-master/XX
+8. comment out CFLAG parameter -std=c++11 in Makefile row #22
+9. compile tnvme ==> make

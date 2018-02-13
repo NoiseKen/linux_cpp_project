@@ -1,0 +1,11 @@
+KEY_NXGN_DRIVER=/home/nxgn/work/cppProj/nvme/myNVMe/drivers/block/nvme.ko
+;KEY_NXGN_DRIVER=./nvme.ko
+KEY_CMPL_DRIVER=/home/nxgn/work/compliance/dnvme/dnvme.ko
+KEY_TEST_IOMETER=/home/nxgn/work/iometer/src/dynamo
+KEY_TEST_TNVME=./runtnvme.sh
+KEY_CMPLMGN_PATH=/home/nxgn/work/compliance/manage
+KEY_NODE_DEV=/dev/nvme0
+KEY_NODE_BLK=/dev/nvme0n1
+KEY_PCI_REMOVE_SLOT=/sys/devices/pci0000:00/0000:00:01.0/0000:02:00.0/remove
+
+

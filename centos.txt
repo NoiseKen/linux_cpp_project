@@ -1,0 +1,16 @@
+############### install wifi under CentOS ###############
+yum install NetworkManager-wifi
+systemctl restart NetworkManager
+
+############### Connect using nmcli ###############
+To view available wifi networks:
+	nmcli dev wifi list
+
+To connect to a wifi network called TestWifi:
+	nmcli --ask dev wifi connect TestWifi
+
+############### Auto Login as Root ###############
+fix below configuration @ /etc/gdm/custom.conf
+[daemon]
+AutomaticLoginEnable=True
+AutomaticLogin=root

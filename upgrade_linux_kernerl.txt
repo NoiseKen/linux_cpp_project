@@ -1,0 +1,25 @@
+apt-get install libncurses5-dev
+apt-get install libssl-dev
+apt-get install libudev-dev
+
+*********************************************
+Run menuconfig (which uses ncurses):
+Confirm the NVMe Driver under Block is set to <M>
+Device Drivers-> Block Devices -> NVM Express block device
+This creates .config file in same directory.
+*********************************************
+make menuconfig
+
+*********************************************
+run as root these make commands (use the j flag as your cores to improve make time)
+*********************************************
+make -j10
+make modules_install -j10
+make install -j10
+reboot
+
+
+**********************************************
+install your own driver (goto new kernel folder)
+**********************************************
+make M=./drivers/nvme

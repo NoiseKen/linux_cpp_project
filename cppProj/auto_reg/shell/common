@@ -1,0 +1,54 @@
+CURRENT_PWD=$PWD
+SH_RST=$PWD/shrst
+RUNNING_HINT=$PWD/shpid
+DATETIME=$(date "+%Y-%m-%d@%H:%M:%S")
+OS_TYPE=$(uname -m)
+
+#var="${var#"${var%%[![:space:]]*}"}"   # remove leading whitespace characters
+#var="${var%"${var##*[![:space:]]}"}"   # remove trailing whitespace characters
+
+
+#argv 1 for path
+cd_pwd()
+{
+	cd $1
+}
+
+shell_running()
+{
+	echo $$ > $RUNNING_HINT
+	rm -f $SH_RST
+}
+
+shell_exit()
+{
+	rm -f $RUNNING_HINT
+}
+
+#########################################
+# Usage : shell_exit_if_error $? Msg
+# argv1 should always $?
+# argv2 the message you want to echo out
+#########################################
+shell_exit_if_error()
+{
+	echo $1 >> $SH_RST	
+	if [ $1 -ne 0 ]
+	then echo "Unexpected Err:$2!!"	
+		shell_exit
+		exit -1
+	fi
+}
+
+#############################################
+##
+## $1 leading msg
+## $2 0 for pass, else fail
+#############################################
+print_msg()
+{
+	if [ $2 -eq 0 ]
+	then printf "$1\033[92mPASS\033[39m\n";
+	else printf "$1\033[91mFAIL\033[39m\n";
+	fi
+}

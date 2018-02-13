@@ -1,0 +1,199 @@
+#	the format of data structure library
+#			searchTag.DWNumber
+#			fieldName.HiBit.LowBit.default.isHex.enumlistTag
+#	if enumlistTag = '@', no enumlist
+
+nvme_admin_delete_sq.DWORD10
+Reserved.31.16.0.1.@
+Queue Identifier (QID).15.0.1.0.@
+
+nvme_admin_create_sq.DWORD10
+Queue Size (QSIZE).31.16.7.0.@
+Queue Identifier (QID).15.0.1.0.@
+
+nvme_admin_create_sq.DWORD11
+Completion Queue Identifier (CQID).31.16.1.0.@
+Reserved.15.3.0.1.@
+Queue Priority (QPRIO).2.1.0.1.enumQPRIO
+Physically Contiguous (PC).0.0.0.1.@
+
+nvme_admin_get_log_page.DWORD10
+Reserved.31.28.0.1.@
+Number of Dwords (NUMD).27.16.80.0.@
+Reserved.15.8.0.1.@
+Log Page Identifier (LID).7.0.1.1.enumLID
+
+nvme_admin_delete_cq.DWORD10
+Reserved.31.16.0.1.@
+Queue Identifier (QID).15.0.1.0.@
+
+nvme_admin_create_cq.DWORD10
+Queue Size (QSIZE).31.16.7.0.@
+Queue Identifier (QID).15.0.1.0.@
+
+nvme_admin_create_cq.DWORD11
+Interrupt Vector (IV).31.16.0.1.@
+Reserved.15.2.0.1.@
+Interrupts Enabled (IEN).1.1.0.1.@
+Physically Contiguous (PC).0.0.0.1.@
+
+nvme_admin_identify.DWORD10
+Reserved.31.2.0.1.@
+Controller or Namespace Structure (CNS).1.0.1.1.enumCNS
+
+nvme_admin_abort_cmd.DWORD10
+Command Identifier (CID).31.16.0.1.@
+Submission Queue Identifier (SQID).15.0.1.0.@
+
+nvme_admin_set_features.DWORD10
+Save (SV).31.31.0.1.@
+Reserved.30.8.0.1.@
+Feature Identifier (FID).7.0.1.1.enumFID
+
+NVME_FEAT_ARBITRATION.DWORD11
+High Priority Weight (HPW).31.24.0.1.@
+Medium Priority Weight (MPW).23.16.0.1.@
+Low Priority Weight (LPW).15.8.0.1.@
+Reserved.7.3.0.1.@
+Arbitration Burst (AB).2.0.0.1.enumAB
+
+NVME_FEAT_POWER_MGMT.DWORD11
+Reserved.31.5.0.1.@
+Power State (PS).4.0.0.1.@
+
+NVME_FEAT_LBA_RANGE.DWORD11
+Reserved.31.6.0.1.@
+Number of LBA Ranges (NUM).5.0.0.1.@
+
+NVME_FEAT_TEMP_THRESH.DWORD11
+Reserved.31.16.0.1.@
+Temperature Threshold (TMPTH).15.0.373.0.@
+
+NVME_FEAT_ERR_RECOVERY.DWORD11
+Reserved.31.16.0.1.@
+Time Limited Error Recovery (TLER).15.0.0.0.@
+
+NVME_FEAT_VOLATILE_WC.DWORD11
+Reserved.31.1.0.1.@
+Volatile Write Cache Enable (WCE).0.0.0.1.@
+
+NVME_FEAT_NUM_QUEUES.DWORD11
+Number of I/O Completion Queues Requested (NCQR).31.16.7.0.@
+Number of I/O Submission Queues Requested (NSQR).15.0.7.0.@
+
+NVME_FEAT_IRQ_COALESCE.DWORD11
+Reserved.31.16.0.1.@
+Aggregation Time (TIME).15.8.0.0.@
+Aggregation Threshold (THR).7.0.0.0.@
+
+NVME_FEAT_IRQ_CONFIG.DWORD11
+Reserved.31.17.0.1.@
+Coalescing Disable (CD).16.16.0.1.@
+Interrupt Vector (IV).15.0.0.1.@
+
+NVME_FEAT_WRITE_ATOMIC.DWORD11
+Reserved.31.1.0.1.@
+Disable Normal (DN).0.0.0.1.@
+
+NVME_FEAT_ASYNC_EVENT.DWORD11
+Reserved.31.8.0.1.@
+SMART / Health Critical Warnings.7.0.0.1.@
+
+NVME_FEAT_PS_TRANSITION.DWORD11
+Reserved.31.1.0.1.@
+Autonomous Power State Transition Enable (APSTE).0.0.0.1.@
+
+nvme_admin_get_features.DWORD10
+Reserved.31.11.0.1.@
+Select (SEL).10.8.0.1.enumSEL
+Feature Identifier (FID).7.0.1.1.enumFID
+
+nvme_admin_async_event.DWORD10
+Reserved.31.0.0.1.@
+
+nvme_admin_activate_fw.DWORD10
+Reserved.31.5.0.1.@
+Activate Action (AA).4.3.0.1.enumAA
+Firmware Slot (FS).2.0.0.1.@
+
+nvme_admin_download_fw.DWORD10
+Number of Dwords (NUMD).31.0.128.0.@
+
+nvme_admin_download_fw.DWORD11
+Offset (OFST).31.0.0.1.@
+
+nvme_admin_format_nvm.DWORD10
+Reserved.31.12.0.1.@
+Secure Erase Settings (SES).11.9.0.1.@
+Protection Information Location (PIL).8.8.0.1.@
+Protection Information (PI).7.5.0.1.@
+Metadata Settings (MS).4.4.0.1.@
+LBA Format (LBAF).3.0.0.1.@
+
+nvme_admin_security_send.DWORD10
+Security Protocol (SECP).31.24.0.1.@
+SP Specific (SPSP).23.8.0.1.@
+Reserved.7.0.0.1.@
+
+nvme_admin_security_send.DWORD11
+Transfer Length (TL).31.0.0.0.@
+
+nvme_admin_security_recv.DWORD10
+Security Protocol (SECP).31.24.0.1.@
+SP Specific (SPSP).23.8.0.1.@
+Reserved.7.0.0.1.@
+
+nvme_admin_security_recv.DWORD11
+Allocation Length (AL).31.0.0.1.@
+
+nvme_admin_invalid_test.DWORD10
+Reserved.31.0.0.1.@
+
+nvme_admin_invalid_test.DWORD11
+Reserved.31.0.0.1.@
+
+-------------------------enum Tag------------------
+enumTag.enumQPRIO
+Urgent (0x00).0
+High (0x01).1
+Medium (0x02).2
+Low (0x03).3
+
+enumTag.enumLID
+Error Information (0x01).1
+SMART / Health Information (0x02).2
+Firmware Slot Information (0x03).3
+
+enumTag.enumCNS
+Namespace (0x00).0
+Controller (0x01).1
+Namespace List (0x02).2
+
+enumTag.enumFID
+Arbitration (0x01).1
+Power Management (0x02).2
+LBA Range Type (0x03).3
+Temperature Threshold (0x04).4
+Error Recovery (0x05).5
+Volatile Write Cache (0x06).6
+Number of Queues (0x07).7
+Interrupt Coalescing (0x08).8
+Interrupt Vector Configuration (0x09).9
+Write Atomicity (0x0A).10
+Asynchronous Event Configuration (0x0B).11
+Autonomous Power State Transition (0x0C).12
+
+enumTag.enumAB
+1 command (0x00).0
+2 commands (0x01).1
+4 commands (0x02).2
+8 commands (0x03).3
+16 commands (0x04).4
+32 commands (0x05).5
+64 commands (0x06).6
+no limit (0x07).7
+
+enumTag.enumAA
+Download and replace only (0x00).0
+Download , replace and active in next reset (0x01).1
+Active firmware slot (0x02).2
