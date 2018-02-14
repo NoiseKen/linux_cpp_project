@@ -11,60 +11,60 @@
 //
 static /*const*/ TStr ioctlBasicMenu[]=
 {
-	ITEM_T("Auto Scan/ Lock 1st NVMe Device", OP_IOCTL_AUTO_LOCK_FIRST),
-	ITEM_T("Scan PCI Device", OP_IOCTL_SCAN_PCI),
-	ITEM_T("Lock PCI Device", OP_IOCTL_LOCK_PCI),
-	ITEM_T("Read NVMe controller register", OP_IOCTL_GET_NVME_CR),
-	//ITEM_T("Test vendor ioctl", OP_IOCTRL_TEST),
-	ITEM_S("This App only can lock one PCI device,"),
-	ITEM_S("if you want to lock others or relock current device,"),
-	ITEM_S("please execute replace the nvme driver again."),
-	__EOM
+    ITEM_T("Auto Scan/ Lock 1st NVMe Device", OP_IOCTL_AUTO_LOCK_FIRST),
+    ITEM_T("Scan PCI Device", OP_IOCTL_SCAN_PCI),
+    ITEM_T("Lock PCI Device", OP_IOCTL_LOCK_PCI),
+    ITEM_T("Read NVMe controller register", OP_IOCTL_GET_NVME_CR),
+    //ITEM_T("Test vendor ioctl", OP_IOCTRL_TEST),
+    ITEM_S("This App only can lock one PCI device,"),
+    ITEM_S("if you want to lock others or relock current device,"),
+    ITEM_S("please execute replace the nvme driver again."),
+    __EOM
 };
 
 
 int 
 ioctl_nvme_pass_through(ValidPassThroughType type, void *cbw, TStr msg)
 {
-	int status=-EINVAL;
-	struct{
-		unsigned int t2c;
-		const char *t2k;
-	}pt[PASS_THROUGH_TYPE_MAX]={
-		{NVME_IOCTL_VENDOR_CMD, TO_STR(KEY_NODE_DEV)},
-		{NVME_IOCTL_ADMIN_CMD, TO_STR(KEY_NODE_DEV)},
-		{NVME_IOCTL_SUBMIT_IO, TO_STR(KEY_NODE_BLK)},
-	};
-		
-	if(type<PASS_THROUGH_TYPE_MAX)
-	{
-		std::string node;
-		IOCtrl *ioCtrl;
-		status =0;
+    int status=-EINVAL;
+    struct{
+        unsigned int t2c;
+        const char *t2k;
+    }pt[PASS_THROUGH_TYPE_MAX]={
+        {NVME_IOCTL_VENDOR_CMD, TO_STR(KEY_NODE_DEV)},
+        {NVME_IOCTL_ADMIN_CMD, TO_STR(KEY_NODE_DEV)},
+        {NVME_IOCTL_SUBMIT_IO, TO_STR(KEY_NODE_BLK)},
+    };
+        
+    if(type<PASS_THROUGH_TYPE_MAX)
+    {
+        std::string node;
+        IOCtrl *ioCtrl;
+        status =0;
 
-		node = ValueList::get_config_value(APP_CONFIG_FILE_NAME, pt[type].t2k);
-		ioCtrl = new IOCtrl(node);
-		if (!ioCtrl->bConnected)
-		{
-			if(msg != NULL)
-			{
-				sprintf(msg, "open node %s failed", node.c_str());
-			}
-			status = -1;
-		} 
-		else
-		{
-			status = ioCtrl->pass_through(pt[type].t2c, cbw);
-			if((status < 0)&&(msg != NULL))
-			{			
-				sprintf(msg, "IOCTL issue fail, errno = %d", errno);
-			}
-		}
+        node = ValueList::get_config_value(APP_CONFIG_FILE_NAME, pt[type].t2k);
+        ioCtrl = new IOCtrl(node);
+        if (!ioCtrl->bConnected)
+        {
+            if(msg != NULL)
+            {
+                sprintf(msg, "open node %s failed", node.c_str());
+            }
+            status = -1;
+        } 
+        else
+        {
+            status = ioCtrl->pass_through(pt[type].t2c, cbw);
+            if((status < 0)&&(msg != NULL))
+            {
+                sprintf(msg, "IOCTL issue fail, errno = %d", errno);
+            }
+        }
 
-		delete ioCtrl;
+        delete ioCtrl;
     }
-    
-    return status;		
+
+    return status;
 }
 
 void
@@ -155,7 +155,7 @@ ioctl_read_nvme_ctrl_reg(MenuSystemExport *par)
 	else
 	{//print controller register
 		unsigned int i32;
-		printf("CAP   = 0x%016lX\n", bar->cap);
+		printf("CAP   = 0x%016llX\n", bar->cap);
 		printf("VS    = 0x%08X\n", bar->vs);
 		printf("IMTMS = 0x%08X\n", bar->intms);		
 		printf("IMTMC = 0x%08X\n", bar->intmc);		
@@ -163,8 +163,8 @@ ioctl_read_nvme_ctrl_reg(MenuSystemExport *par)
 		printf("CSTS  = 0x%08X\n", bar->csts);
 		printf("NSSR  = 0x%08X\n", bar->nssr);		
 		printf("AQA   = 0x%08X\n", bar->aqa);
-		printf("ASQ   = 0x%016lX\n", bar->asq);
-		printf("ACQ   = 0x%016lX\n", bar->acq);		
+		printf("ASQ   = 0x%016llX\n", bar->asq);
+		printf("ACQ   = 0x%016llX\n", bar->acq);		
 		printf("------detail------\n");		
 		i32 = bar->cap & 0xFFFF;
 		printf("CAP.MQES = 0x%04X => maximum %d enteries\n", i32, i32+1);

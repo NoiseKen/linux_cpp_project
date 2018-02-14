@@ -11,20 +11,20 @@
 //
 static /*const*/ TStr adminBasicMenu[]=
 {
-	ITEM_T("Configure admin queue", OP_ADMIN_CONFIG_QUEUE),
-	ITEM_T_IS("Delete I/O submission queue", OP_ADMIN_DELETE_IO_SUBMISSION_QUEUE),
-	ITEM_T_IS("Create I/O submission queue", OP_ADMIN_CREATE_IO_SUBMISSION_QUEUE),
-	ITEM_T_IS("Get log page", OP_ADMIN_GET_LOG_PAGE),
-	ITEM_T_IS("Delete I/O completion queue", OP_ADMIN_DELETE_IO_COMPLETION_QUEUE),
-	ITEM_T_IS("Create I/O completion queue", OP_ADMIN_CREATE_IO_COMPLETION_QUEUE),
-	ITEM_T_IS("Identify", OP_ADMIN_IDENTIFY),
-	ITEM_T_IS("Abort", OP_ADMIN_ABORT),	
-	ITEM_T_IS("Get feature", OP_ADMIN_GET_FEATURE),
-	ITEM_T_IS("Set feature", OP_ADMIN_SET_FEATURE),	
-	ITEM_T_IS("Asynchronous event request", OP_ADMIN_ASYNCHRONOUS_EVENT_REQUEST),
-	ITEM_T_IS("Firmware active", OP_ADMIN_FIRMWARE_ACTIVATE),
-	ITEM_T_IS("Firmware image download", OP_ADMIN_FIRMWARE_IMAGE_DOWNLOAD),	
-	__EOM
+    ITEM_T("Configure admin queue", OP_ADMIN_CONFIG_QUEUE),
+    ITEM_T_IS("Delete I/O submission queue", OP_ADMIN_DELETE_IO_SUBMISSION_QUEUE),
+    ITEM_T_IS("Create I/O submission queue", OP_ADMIN_CREATE_IO_SUBMISSION_QUEUE),
+    ITEM_T_IS("Get log page", OP_ADMIN_GET_LOG_PAGE),
+    ITEM_T_IS("Delete I/O completion queue", OP_ADMIN_DELETE_IO_COMPLETION_QUEUE),
+    ITEM_T_IS("Create I/O completion queue", OP_ADMIN_CREATE_IO_COMPLETION_QUEUE),
+    ITEM_T_IS("Identify", OP_ADMIN_IDENTIFY),
+    ITEM_T_IS("Abort", OP_ADMIN_ABORT),	
+    ITEM_T_IS("Get feature", OP_ADMIN_GET_FEATURE),
+    ITEM_T_IS("Set feature", OP_ADMIN_SET_FEATURE),	
+    ITEM_T_IS("Asynchronous event request", OP_ADMIN_ASYNCHRONOUS_EVENT_REQUEST),
+    ITEM_T_IS("Firmware active", OP_ADMIN_FIRMWARE_ACTIVATE),
+    ITEM_T_IS("Firmware image download", OP_ADMIN_FIRMWARE_IMAGE_DOWNLOAD),	
+    __EOM
 };
 
 enum{
@@ -200,8 +200,8 @@ display_lba_range_type(struct nvme_lba_range_type *ptr)
 	//char buf[17];
 	printf("Type = 0x%02X\n", ptr->type);
 	printf("Attributes = 0x%02X\n", ptr->attributes);
-	printf("Start LBA = 0x%016lX\n", ptr->slba);
-	printf("Number of logic block = 0x%016lX\n", ptr->nlb);
+	printf("Start LBA = 0x%016llX\n", ptr->slba);
+	printf("Number of logic block = 0x%016llX\n", ptr->nlb);
 	
 	//memcpy(buf, ptr->guid, 16);
 	//buf[16]=__EOS;
@@ -764,10 +764,10 @@ admin_identify(MenuSystemExport *par)
 					const std::string rpStr[4]={"Best", "Better", "Good", "Degrade" };					
 					int idx;								
 					printf("Namespace %d identify info\n", par->parameter[0]);
-					printf("Namespace Size (NSZE) = 0x%016lX\n", id.ns->nsze);
-					printf("  maximum LBA ==> 0x%016lX\n", id.ns->nsze-1 );
-					printf("Namespace Capacity (NCAP) = 0x%016lX (%.2fGB)\n", id.ns->ncap ,((float)id.ns->nsze*LBA_SIZE)/(1024*1024*1024));
-					printf("Namespace Utilization (NUSE) = 0x%016lX\n", id.ns->nuse);
+					printf("Namespace Size (NSZE) = 0x%016llX\n", id.ns->nsze);
+					printf("  maximum LBA ==> 0x%016llX\n", id.ns->nsze-1 );
+					printf("Namespace Capacity (NCAP) = 0x%016llX (%.2fGB)\n", id.ns->ncap ,((float)id.ns->nsze*LBA_SIZE)/(1024*1024*1024));
+					printf("Namespace Utilization (NUSE) = 0x%016llX\n", id.ns->nuse);
 					printf("Namespace Features (NSFEAT) = 0x%02X\n", id.ns->nsfeat);
 					printf("Number of LBA Formats (NLBAF) = 0x%02X\n", id.ns->nlbaf);
 					printf("  support LBA formats ==> %d\n", id.ns->nlbaf+1);
@@ -804,7 +804,7 @@ admin_identify(MenuSystemExport *par)
 					}
 					printf("Namespace Multi-path I/O and Namespace Sharing Capabilities (NMIC) = 0x%02X\n", id.ns->nmic);
 					printf("Reservation Capabilities (RESCAP) = 0x%02X\n", id.ns->rescap);
-					printf("IEEE Extended Unique Identifier = 0x%016lX\n", id.ns->eui64);					
+					printf("IEEE Extended Unique Identifier = 0x%016llX\n", id.ns->eui64);					
 					
 					printf("-------- LBAF description -----------\n");
 					for(idx=0;idx<id.ns->nlbaf+1;idx++)

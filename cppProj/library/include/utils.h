@@ -3,6 +3,8 @@
 
 #include <linux/types.h>
 #include <sys/time.h>
+#include <endian.h>
+#include <cstdint>
 
 #ifdef __CHECKER__
 #define __force       __attribute__((force))

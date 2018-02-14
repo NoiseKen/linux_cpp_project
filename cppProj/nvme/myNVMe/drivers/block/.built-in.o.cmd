@@ -1,0 +1,1 @@
+cmd_/home/user/work/git/linux_cpp_project/cppProj/nvme/myNVMe/drivers/block/built-in.o :=  rm -f /home/user/work/git/linux_cpp_project/cppProj/nvme/myNVMe/drivers/block/built-in.o; ar rcsD /home/user/work/git/linux_cpp_project/cppProj/nvme/myNVMe/drivers/block/built-in.o
