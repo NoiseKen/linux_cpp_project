@@ -11,6 +11,7 @@ public:
     bool is_list_device(void);
     bool is_driver_version(void);
     bool is_direct_io(void);
+    bool is_raw_device(void);
     std::string debug_dump(void) {return _debugDump;};
     int selected_nvme_device(void);
     ConsoleFunction(int argc, char* argv[]);
@@ -27,6 +28,7 @@ private:
         FUNC_VER,
         FUNC_DIRECT_IO,
         FUNC_DD,
+        FUNC_HIDE_RAWDEV,
     };
     static GlobalVariable _gVars[];
 };

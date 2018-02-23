@@ -20,7 +20,7 @@ GlobalVariable FOPCmdRead::_gVars[]=
     GlobalVariable("-rawdev", "raw string for dev node path\n"
                    "  -rawdev=/dev/nvme1n1 : ioex function to /dev/nvme0n1 (same as -dev=1 -nsid=1)\n"
                    "  -rawdev=/dev/sda     : ioex function to /dev/sda\n"
-                   "  *********** BE Careful for use option -rawdev *********** \n"
+                   "  *********** Be Careful for use option -rawdev *********** \n"
                    "  if use direct assign ioex fill function to OS disk, it may cause platform crash!!! \n"
                    ),
     GlobalVariable("-help", "show this page\n"

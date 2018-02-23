@@ -175,7 +175,7 @@ int main(int argc, char *argv[])
             {
                 int nth;
                 nth = cf->selected_nvme_device();
-                if(nth<numNVMeDevices)
+                if((nth<numNVMeDevices)||cf->is_raw_device())
                 {
                     //check direct io
                     //printf("Direct IO=%d\n", cf->is_direct_io());
@@ -206,7 +206,7 @@ int main(int argc, char *argv[])
             {
                 int nth;
                 nth = cf->selected_nvme_device();
-                if(nth<numNVMeDevices)
+                if((nth<numNVMeDevices)||cf->is_raw_device())
                 {
                     ret = fops->exec(argc, argv, nth);
                 }

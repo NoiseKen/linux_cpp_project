@@ -38,6 +38,8 @@ GlobalVariable ConsoleFunction::_gVars[]=
                    "           [15:12] : reserved\n"
                    "                     all 16 bytes 0xff, if IoEx action completion without fail\n"
                    ),
+    //GlobalVariable("-rawdev", "", SW_DEFAULT, true),
+    HideSwitch("-rawdev"),
 
 };
 //---------------------------------------------------------------------------
@@ -89,6 +91,11 @@ bool
 ConsoleFunction::is_driver_version(void)
 {
     return _gVars[FUNC_VER].enabled;
+}
+//---------------------------------------------------------------------------
+bool ConsoleFunction::is_raw_device(void)
+{
+    return _gVars[FUNC_HIDE_RAWDEV].enabled;
 }
 //---------------------------------------------------------------------------
 bool
