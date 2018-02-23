@@ -31,8 +31,8 @@ GlobalVariable::set_value(std::string in)
     _raw = in;
 }
 //---------------------------------------------------------------------------
-GlobalVariable::GlobalVariable(std::string key, std::string desc, std::string def)
-    : keyWord(key), help(desc)
+GlobalVariable::GlobalVariable(std::string key, std::string desc, std::string def, bool hide)
+    : keyWord(key), help(desc), hide(hide)
     , enabled(this, &GlobalVariable::fGetRawSwitch, &GlobalVariable::fSetRawSwitch)
 {
     _raw = def;

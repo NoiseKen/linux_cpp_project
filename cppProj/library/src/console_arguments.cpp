@@ -200,6 +200,11 @@ ConsoleArguments::show_var_help(std::string title)
 
     for(int i=0;i<varsCount;i++)
     {
+        if(vars[i].hide)
+        {
+            continue;
+        }
+
         val = vars[i].value();
         if((val.length()==0)||(val==SW_DEFAULT))
         {
