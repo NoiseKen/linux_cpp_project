@@ -6,6 +6,7 @@
 CC  = g++ -O -Wall -Wno-unused-result
 EXE = NVMeCtrlRW.exe
 LIBRARY	= ../library
+PY_LIB	= $(LIBRARY)/pylib
 LIB_INC	= $(LIBRARY)/include
 LIB_SRC = $(LIBRARY)/src
 NVM_LIB = $(LIBRARY)/NVMe
@@ -71,8 +72,9 @@ SOURCES = \
 	$(LIB_SRC)/sys_ctrl.cpp	\
 	$(LIB_SRC)/file_ctrl.cpp	\
 	$(LIB_SRC)/utils.c
-	
-all:
+
+all: $(EXE)
+	$(PY_LIB)/build_version.py main.cpp
 	$(CC) $(INCLUDES) $(DFLAGS) $(SOURCES) -o $(EXE) $(LFLAGS)
 
 clean:

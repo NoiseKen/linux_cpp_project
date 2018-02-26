@@ -18,12 +18,22 @@
 #define EXIT_INVALID_PT_CMD         -4
 #define EXIT_NO_NVME_DEVICE_EXIST   -5
 */
+
+
+//Version Ctrl By Python Script, DO NOT MODIFY IT!!!
+#define MAJOR_VER    1
+#define MINOR_VER    0
+#define RELEASED     0
+#define BUILD_VER    0
+//Version Ctrl By Python Script, DO NOT MODIFY IT!!!
+
+
 void usage(ConsoleFunction *fc, char *argv0)
 {
     //TFileInfo *info;
     //info = new TFileInfo(AnsiString(argv0));
     //printf("Copyright of %s\n", info->Items[fiCompanyName]);
-    //printf("%s, Ver %s\n", info->Items[fiProductName].c_str(), info->Items[fiFileVersion].c_str() );
+    printf("\n%s, Ver %d.%d.%d build %03d\n", ConsoleArguments::appName.c_str(), MAJOR_VER, MINOR_VER, RELEASED, BUILD_VER);
     printf("Build Date : %s, %s\n\n", __DATE__, __TIME__);
     //delete info;
     printf("Usage : %s function=option\n", ConsoleArguments::appName.c_str());
@@ -231,3 +241,6 @@ int main(int argc, char *argv[])
     
     return ret;
 }
+
+
+

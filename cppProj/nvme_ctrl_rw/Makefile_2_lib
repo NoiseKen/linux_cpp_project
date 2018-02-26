@@ -4,6 +4,7 @@
 # 
 
 LIBRARY	= ../library
+PY_LIB	= $(LIBRARY)/pylib
 LIB_INC	= $(LIBRARY)/include
 LIB_SRC = $(LIBRARY)/src
 NVM_LIB = $(LIBRARY)/NVMe
@@ -83,9 +84,13 @@ OUT = ./$(APP).a
 # compiler
 CCC = g++
 
-.SUFFIXES: .cpp
+#.SUFFIXES: .cpp
 
-default: dep $(OUT)
+default: clean dep _release $(OUT)
+
+minor: clean dep _release2 $(OUT)
+
+major: clean dep _release3 $(OUT)
 
 .cpp.o:
 	$(CCC) $(INCLUDES) $(DFLAGS) -c $< -o $@ $(LFLAGS)
@@ -101,3 +106,11 @@ dep:
 clean:
 	rm -f $(OBJ) $(OUT) Makefile.bak
 
+_release:
+	$(PY_LIB)/build_version.py main.cpp +
+
+_release2:
+	$(PY_LIB)/build_version.py main.cpp ++
+
+_release3:
+	$(PY_LIB)/build_version.py main.cpp +++
