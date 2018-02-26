@@ -11,11 +11,11 @@ class KeyCtrl::KeyCore KeyCtrl::core(APP_KEY_DEPTH);
 TOnKeyValidEvent KeyCtrl::on_key_valid=NULL;
 
 KeyCtrl::KeyCore::KeyCore(unsigned int depth) : FIFOCtrl<KeyCode>(depth)
-{	
+{
 }
 
 KeyCtrl::KeyCore::~KeyCore(void)
-{	
+{
 }
 
 KeyCtrl::KeyCtrl(void) : bEmpty(this, &KeyCtrl::_f_check_key_empty)
@@ -83,10 +83,9 @@ KeyCtrl::KeyCore::decode_sc(void)
 				||(ch == (SC_END&0xFF))
 				)
 			{// verify a virtual key
-				
+
 				switch(scanKeyCode)
 				{
-					
 					case SC_F2:
 						key = KEY_F2;
 						break;
@@ -143,7 +142,7 @@ KeyCtrl::KeyCore::decode_sc(void)
 						break;
 					case SC_DELETE:
 						key = KEY_DEL;
-						break;																			
+						break;
 					default:
 						key = KEY_NOT_ALLOW;
 						break;
@@ -151,7 +150,7 @@ KeyCtrl::KeyCore::decode_sc(void)
 
 				bIdentifying = false;
 				key_code_determine(key, 0xFF);
-			}			
+			}
 		}
 		else
 		{//normal key decode
@@ -180,19 +179,19 @@ KeyCtrl::KeyCore::decode_sc(void)
 						case SC_TAB:
 							key = KEY_TAB;
 							break;
-						default:						
+						default:
 							key = KEY_NOT_ALLOW;
-							break;							
+							break;
 					}
 				}
-				
+
 				if((ch<0x20)||(ch>0x7E))
 				{
 					ch = 0xFF;
 				}
-				
+
 				key_code_determine(key, ch);
-				
+
 			}
 			else
 			{//first ESC charater
@@ -207,11 +206,11 @@ KeyCtrl::KeyCore::decode_sc(void)
 	{//check if identifying
 		//if(timer_decrement_expired(DECREASEMENT_SLOT_KEY_IDENTIFY))
 		if(TimerCtrl().bExpired[idxTmrSlot])
-		{			
+		{
 			key_code_determine(KEY_ESC, 0xFF);
 			bIdentifying = false;
 		}
-	}		
+	}
 
 }
 
@@ -227,17 +226,16 @@ KeyCtrl::routine(void)
 {
 
 	int byteCnt;
-	unsigned char ch;		
-	
+	unsigned char ch;
+
 	byteCnt = core.kbhit();
-	while(byteCnt)
-	{		
-		read(0,&ch,1);		
+	while(byteCnt--)
+	{
+		read(0,&ch,1);
 		core.scFIFO << ch;
-		byteCnt--;
 	}
-	
+
 	core.decode_sc();
-	
+
 }
 

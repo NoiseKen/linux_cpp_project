@@ -9,7 +9,7 @@
 
 #define SPEICAL_KEY_IDENTIFY_MS	2
 
-typedef struct{	
+typedef struct{
 	char key;
 	char ascii;
 }KeyCode;
@@ -45,7 +45,7 @@ private:
 	};
 	static KeyCore core;
 	bool _f_check_key_empty(void);
-			
+
 protected:
 public:	
 	static void routine(void);
@@ -54,7 +54,7 @@ public:
 	KeyCtrl& operator >> (KeyCode &);
 	KeyCtrl& operator << (KeyCode);
 	//useful properties
-	property_ro<KeyCtrl, bool> bEmpty;	
+	property_ro<KeyCtrl, bool> bEmpty;
 	//constructor
 	KeyCtrl(void);
 	//destructor

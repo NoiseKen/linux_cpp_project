@@ -59,7 +59,7 @@ int Memory<T>::load_from(std::string fn, uint32_t size)
 	fs = new std::fstream(fn.c_str(), std::fstream::in);
 	if(fs->good())
 	{
-		fs->read((char *)_ptr, size);		
+		fs->read((char *)_ptr, size);
 		ret = size;
 		delete fs;
 	}		
@@ -134,7 +134,7 @@ void Memory<T>::dump(uint32_t offset, uint32_t size, std::string &out)
 		case 2:	 sel=1; dumpRowCnt = 8; break;
 		case 4:	 sel=2; dumpRowCnt = 4; break;
 		case 8:	 sel=3; dumpRowCnt = 2; break;
-		default: sel=0; dumpRowCnt = 1; break;
+		default: sel=0; dumpRowCnt = 16; break;
 	}
 	
 	repeat = size/sizeof(T);
@@ -144,8 +144,8 @@ void Memory<T>::dump(uint32_t offset, uint32_t size, std::string &out)
 	while(repeat--)
 	{
 		if(cnt==0)
-		{			
-			out += lstr.sprintf("0x%08X: ", offset);			
+		{
+			out += lstr.sprintf("0x%08X: ", offset);
 		}
 		
 		out += lstr.sprintf(format[sel], _ptr[i++]);
@@ -156,7 +156,7 @@ void Memory<T>::dump(uint32_t offset, uint32_t size, std::string &out)
 			cnt = 0;
 			offset += 16;
 		}
-	}	
+	}
 }
 
 template<class T>
@@ -165,7 +165,7 @@ bool Memory<T>::check(uint32_t offset, uint32_t size, T check, std::string &out,
 	int i=0;
 	bool match=true;
 	LegacyString lstr;
-	unsigned int repeat;	
+	unsigned int repeat;
 	repeat = size/sizeof(T);
 	out.clear();
 	i=offset/sizeof(T);
@@ -175,21 +175,17 @@ bool Memory<T>::check(uint32_t offset, uint32_t size, T check, std::string &out,
 		{
 			out += lstr.sprintf("check mismatch [0x%08X] : expected=0x%08X, actual=0x%08X",
 						i*sizeof(T), check, _ptr[i]);
-					
 			match=false;
-						
 			if(skipWhenErr)
-			{				
+			{
 				break;
 			}
 			else
 			{
 				out += "\n";
-			}			
+			}
 		}
-		
 		i++;
-		
 	}
 	
 	return match;
@@ -225,7 +221,7 @@ bool Memory<T>::compare(T* cmpPtr, uint32_t size, std::string &out, int actualOf
 		}
 		//i++;
 		actual++;
-		expect++;		
+		expect++;
 	}
 	return match;
 }
