@@ -11,7 +11,7 @@ public:
     bool is_list_device(void);
     bool is_driver_version(void);
     bool is_direct_io(void);
-    bool is_raw_device(void);
+    bool is_raw_device(std::string &rawdev);
     std::string debug_dump(void) {return _debugDump;};
     int selected_nvme_device(void);
     ConsoleFunction(int argc, char* argv[]);

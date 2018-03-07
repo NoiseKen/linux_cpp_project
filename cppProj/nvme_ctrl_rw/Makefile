@@ -73,8 +73,8 @@ SOURCES = \
 	$(LIB_SRC)/file_ctrl.cpp	\
 	$(LIB_SRC)/utils.c
 
-all: $(EXE)
-	$(PY_LIB)/build_version.py main.cpp
+all:
+	$(PY_LIB)/build_version.py app_ver.dat
 	$(CC) $(INCLUDES) $(DFLAGS) $(SOURCES) -o $(EXE) $(LFLAGS)
 
 clean:
@@ -124,6 +124,7 @@ main.o: /usr/include/asm/bitsperlong.h /usr/include/asm-generic/bitsperlong.h
 main.o: /usr/include/linux/posix_types.h /usr/include/linux/stddef.h
 main.o: /usr/include/asm/posix_types.h /usr/include/asm/posix_types_64.h
 main.o: /usr/include/asm-generic/posix_types.h ./linux/nvme_ioctl.h
+main.o: app_ver.dat
 console_function.o: /usr/include/stdio.h /usr/include/features.h
 console_function.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
 console_function.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h

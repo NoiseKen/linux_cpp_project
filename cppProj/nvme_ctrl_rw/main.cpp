@@ -18,15 +18,7 @@
 #define EXIT_INVALID_PT_CMD         -4
 #define EXIT_NO_NVME_DEVICE_EXIST   -5
 */
-
-
-//Version Ctrl By Python Script, DO NOT MODIFY IT!!!
-#define MAJOR_VER    1
-#define MINOR_VER    0
-#define RELEASED     0
-#define BUILD_VER    0
-//Version Ctrl By Python Script, DO NOT MODIFY IT!!!
-
+#include "app_ver.dat"
 
 void usage(ConsoleFunction *fc, char *argv0)
 {
@@ -70,13 +62,22 @@ int main(int argc, char *argv[])
     else
     {
         std::string cmd;
+        std::string rawdev;
         bool valid=true;
+        bool isRawdev=cf->is_raw_device(rawdev);
         int numNVMeDevices;
         SysCtrl *sysCtrl;
         std::string cli;
         sysCtrl=new SysCtrl();
-        //cli="ls -al /sys/class/nvme | grep nvme | wc -l";
-        cli="ls -al /dev | grep nvme | grep crw | wc -l";
+        if(isRawdev)
+        {
+            cli="ls -al "+rawdev+" | wc -l";
+        }
+        else
+        {
+            //cli="ls -al /sys/class/nvme | grep nvme | wc -l";
+            cli="ls -al /dev | grep nvme | grep crw | wc -l";
+        }
         ret=sysCtrl->exec_cmd(cli);
         if(ret==0)
         {
@@ -98,7 +99,15 @@ int main(int argc, char *argv[])
         if(cf->is_list_device())
         {
             //cli="ls -al /sys/class/nvme | grep nvme";
-            cli="ls -al /dev | grep nvme | grep crw";
+            std::string devpath;
+            if(isRawdev)
+            {
+                cli="ls -al "+rawdev;
+            }
+            else
+            {
+                cli="ls -al /dev | grep nvme | grep crw";
+            }
             sysCtrl->exec_cmd(cli);
             printf("%s", sysCtrl->stdout().c_str());            
             printf("present NVMe Device=%d\n", numNVMeDevices);
@@ -185,7 +194,7 @@ int main(int argc, char *argv[])
             {
                 int nth;
                 nth = cf->selected_nvme_device();
-                if((nth<numNVMeDevices)||cf->is_raw_device())
+                if((nth<numNVMeDevices)||isRawdev)
                 {
                     //check direct io
                     //printf("Direct IO=%d\n", cf->is_direct_io());
@@ -216,7 +225,7 @@ int main(int argc, char *argv[])
             {
                 int nth;
                 nth = cf->selected_nvme_device();
-                if((nth<numNVMeDevices)||cf->is_raw_device())
+                if((nth<numNVMeDevices)||isRawdev)
                 {
                     ret = fops->exec(argc, argv, nth);
                 }

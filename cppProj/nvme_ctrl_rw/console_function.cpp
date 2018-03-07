@@ -93,9 +93,14 @@ ConsoleFunction::is_driver_version(void)
     return _gVars[FUNC_VER].enabled;
 }
 //---------------------------------------------------------------------------
-bool ConsoleFunction::is_raw_device(void)
+bool ConsoleFunction::is_raw_device(std::string &rawdev)
 {
-    return _gVars[FUNC_HIDE_RAWDEV].enabled;
+    bool en=_gVars[FUNC_HIDE_RAWDEV].enabled;
+    if(en)
+    {
+        rawdev=_gVars[FUNC_HIDE_RAWDEV].value();
+    }
+    return en;
 }
 //---------------------------------------------------------------------------
 bool

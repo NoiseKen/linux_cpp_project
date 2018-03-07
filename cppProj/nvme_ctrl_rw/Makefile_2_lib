@@ -107,10 +107,10 @@ clean:
 	rm -f $(OBJ) $(OUT) Makefile.bak
 
 _release:
-	$(PY_LIB)/build_version.py main.cpp +
+	$(PY_LIB)/build_version.py app_ver.dat +
 
 _release2:
-	$(PY_LIB)/build_version.py main.cpp ++
+	$(PY_LIB)/build_version.py app_ver.dat ++
 
 _release3:
-	$(PY_LIB)/build_version.py main.cpp +++
+	$(PY_LIB)/build_version.py app_ver.dat +++
