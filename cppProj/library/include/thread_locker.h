@@ -3,13 +3,13 @@
 class ThreadLocker
 {
 public:
-    void acquire(void){while(locked){}; locked=true;};
-    void release(void){locked=false;};
-    ThreadLocker(void){locked=false;};
-    ~ThreadLocker(void){};
+    void acquire(void);
+    void release(void);
+    ThreadLocker(void);
+    ~ThreadLocker(void);
 protected:
 private:
-    bool locked;
+    bool __locked;
 };
 
 #endif//ndef _THREAD_LOCKER_H_

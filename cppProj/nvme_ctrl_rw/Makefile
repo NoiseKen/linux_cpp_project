@@ -2245,6 +2245,17 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_write.o: ../library/include/legacy_string.h
 ./fop_cmd/fop_write.o: ../library/include/memory.h
 ../library/src/thread_locker.o: ../library/include/thread_locker.h
+../library/src/thread_locker.o: /usr/include/unistd.h /usr/include/features.h
+../library/src/thread_locker.o: /usr/include/stdc-predef.h
+../library/src/thread_locker.o: /usr/include/sys/cdefs.h
+../library/src/thread_locker.o: /usr/include/bits/wordsize.h
+../library/src/thread_locker.o: /usr/include/gnu/stubs.h
+../library/src/thread_locker.o: /usr/include/bits/posix_opt.h
+../library/src/thread_locker.o: /usr/include/bits/environments.h
+../library/src/thread_locker.o: /usr/include/bits/types.h
+../library/src/thread_locker.o: /usr/include/bits/typesizes.h
+../library/src/thread_locker.o: /usr/include/bits/confname.h
+../library/src/thread_locker.o: /usr/include/getopt.h
 ../library/src/async_cmd.o: /usr/include/stdlib.h /usr/include/features.h
 ../library/src/async_cmd.o: /usr/include/stdc-predef.h
 ../library/src/async_cmd.o: /usr/include/sys/cdefs.h
