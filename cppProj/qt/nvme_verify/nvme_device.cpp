@@ -3,7 +3,7 @@
 #include "debug.h"
 #include "memory.h"
 #include "nvme_task.h"
-#define NXGN_REF_TAG	0x1A2B3C4D
+#define KW_REF_TAG	0x1A2B3C4D
 
 QString 
 NVMeDevice::dsFileName[dsSupported]={
@@ -403,7 +403,7 @@ NVMeDevice::vendor_set_lba_range_type(HtmlString &msg)
 	adm->nsid = 1;
 	adm->cdw10 = NVME_FEAT_LBA_RANGE;
 	adm->cdw11 = 0x00;
-	adm->cdw14 = NXGN_REF_TAG;
+	adm->cdw14 = KW_REF_TAG;
 	adm->timeout_ms = 1000;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_ADMIN_CMD, adm, msg);
 	
@@ -577,7 +577,7 @@ NVMeDevice::admin_get_log_page(unsigned int nsid, unsigned int dword10, HtmlStri
 	//DWORD10 = number of DWORD
 	//adm->cdw10 = ((adm->data_len/4-1)<<16)|par->parameter[0];
 	adm->cdw10 = dword10;
-	adm->cdw14 = NXGN_REF_TAG;
+	adm->cdw14 = KW_REF_TAG;
 	adm->timeout_ms = 1000;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_ADMIN_CMD, adm, msg);
 	if( ioctlStatus >= 0 )
@@ -624,7 +624,7 @@ NVMeDevice::admin_abort(unsigned int dword10, HtmlString &msg)
 	memset(adm, 0, sizeof(struct nvme_admin_cmd));
 	adm->opcode = nvme_admin_abort_cmd;
 	adm->cdw10 = dword10;
-	adm->cdw14 = NXGN_REF_TAG;
+	adm->cdw14 = KW_REF_TAG;
 	adm->timeout_ms = 1000;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_ADMIN_CMD, adm, msg);
 	if(ioctlStatus >= 0)
@@ -669,7 +669,7 @@ NVMeDevice::admin_identify(unsigned int nsid, unsigned int dword10, HtmlString &
 	adm->opcode = nvme_admin_identify;
 	adm->nsid = nsid;
 	adm->cdw10 = dword10;
-	adm->cdw14 = NXGN_REF_TAG;
+	adm->cdw14 = KW_REF_TAG;
 	adm->data_len = ioctlStatus;
 	adm->addr = (uint64_t)id.ptr;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_ADMIN_CMD, adm, msg);
@@ -737,7 +737,7 @@ NVMeDevice::admin_creat_delete_q(unsigned int op, unsigned int dword10, unsigned
 	adm->opcode = op;
 	adm->cdw10 = dword10;
 	adm->cdw11 = dword11;
-	adm->cdw14 = NXGN_REF_TAG;
+	adm->cdw14 = KW_REF_TAG;
 	adm->timeout_ms = 1000;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_ADMIN_CMD, adm, msg);
 	if(ioctlStatus >= 0)
@@ -834,7 +834,7 @@ NVMeDevice::admin_feature(unsigned int op, unsigned int nsid, unsigned int dword
 		adm->nsid = nsid;
 		adm->cdw10 = dword10;
 		adm->cdw11 = dword11;
-		adm->cdw14 = NXGN_REF_TAG;
+		adm->cdw14 = KW_REF_TAG;
 		adm->timeout_ms = 1000;
 		ioctlStatus = nvme_pass_through(PASS_THROUGH_ADMIN_CMD, adm, msg);
 		if(ioctlStatus >= 0)
@@ -942,7 +942,7 @@ int NVMeDevice::submis_flush(HtmlString &msg)
 	
 	io->opcode = nvme_cmd_flush;
 	io->control = 1<<15;	//limited retry
-	io->reftag = NXGN_REF_TAG;
+	io->reftag = KW_REF_TAG;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_SUBMIS_CMD, io, msg);
 	if(ioctlStatus >= 0)
 	{	
@@ -969,7 +969,7 @@ NVMeDevice::submis_wrc(unsigned int op, uint64_t slba, uint16_t nblocks, void *p
 	io->nblocks = nblocks;
 	io->addr = (uint64_t)prp;
 	io->slba = slba;
-	io->reftag = NXGN_REF_TAG;
+	io->reftag = KW_REF_TAG;
 	ioctlStatus = nvme_pass_through(PASS_THROUGH_SUBMIS_CMD, io, msg);
 	if(ioctlStatus >= 0)
 	{

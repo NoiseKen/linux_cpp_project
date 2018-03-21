@@ -34,7 +34,7 @@ ConsoleCLI::run(QString cli)
 	*term << TerminalCtrl::TC_CONFIG_NO_ECHO;
 	*term << AnsiGen::EC_CLR_SCREEN << COLOR_HI_GREEN << (XYLocate){1, 1};
 	*term << "***************************************************************\n";
-	*term << "** NxGn NVMe Host App -- Console mode --\n";
+	*term << "** KW NVMe Host App -- Console mode --\n";
 	*term << "***************************************************************\n";
 	*term << COLOR_NORMAL << QString("Executing Cmd:\n  %1").arg(cli).toStdString();
 	*term << "\n ------------------------- OUTPUT --------------------\n" << TerminalCtrl::TC_FLUSH;	

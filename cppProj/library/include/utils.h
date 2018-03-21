@@ -101,7 +101,7 @@ typedef TStrList *TStrListSet;
 typedef void(*GeneralTask)(void);
 typedef void * TPurePoint;
 
-#define APP_HISTORY_FILE_PATH	"/var/log/nxgn_history.log"
+#define APP_HISTORY_FILE_PATH	"/var/log/kw_history.log"
 #define APP_CONFIG_FILE_NAME	"config.dat"
 
 

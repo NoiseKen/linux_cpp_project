@@ -15,7 +15,7 @@
 
 #define TO_STR(s)	(#s)
 
-#define LOG_FILE_PATH	"/var/log/nxgn.log"
+#define LOG_FILE_PATH	"/var/log/kw.log"
 
 typedef struct auto_scan_pci{
 	unsigned int cnt;

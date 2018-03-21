@@ -428,7 +428,7 @@ FormApp::FormApp(void) : nvmeDev(this, &FormApp::_f_get_nvme_dev)
 
 	event_connect();
 	
-	opGrpList << "NVMe Basic Command" << "NxGn Vendor Command";
+	opGrpList << "NVMe Basic Command" << "KW Vendor Command";
 	gui_init();
 }
 

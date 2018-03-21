@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>icon_nxgn.ico</normaloff>icon_nxgn.ico</iconset>
+    <normaloff>icon_kw.ico</normaloff>icon_kw.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>

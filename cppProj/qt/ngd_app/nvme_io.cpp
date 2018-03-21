@@ -56,7 +56,7 @@ NVMeIO::admin_identify(struct nvme_id_ctrl *ctrl)
 	memset(adm, 0, sizeof(struct nvme_admin_cmd));
 	adm->opcode = nvme_admin_identify;
 	adm->cdw10 = 0x01;	//for identify controller
-	//adm->cdw14 = NXGN_REF_TAG;
+	//adm->cdw14 = KW_REF_TAG;
 	adm->data_len = sizeof(struct nvme_id_ctrl);
 	adm->addr = (uint64_t)ctrl;
 	ioctlStatus = nvme_io_pass_through(NVME_IOCTL_ADMIN_CMD, adm);
@@ -79,7 +79,7 @@ NVMeIO::admin_identify(struct nvme_id_ns *ns, unsigned int nsid)
 	adm->opcode = nvme_admin_identify;
 	adm->nsid = nsid;
 	adm->cdw10 = 0x00;	//for identify namespace
-	//adm->cdw14 = NXGN_REF_TAG;
+	//adm->cdw14 = KW_REF_TAG;
 	adm->data_len = sizeof(struct nvme_id_ns);
 	adm->addr = (uint64_t)ns;
 	ioctlStatus = nvme_io_pass_through(NVME_IOCTL_ADMIN_CMD, adm);

@@ -66,7 +66,7 @@ public:
 #define NORMAL_KEY		(0<<5)
 #define HOT_KEY			(1<<5)
 #define CONTROL_KEY		(2<<5)
-#define NXGN_KEY		(3<<5)
+#define KW_KEY		(3<<5)
 
 #define KEY_NUM(arg)	(NORMAL_KEY|(arg&0x0F))
 #define KEY_0			KEY_NUM('0')
@@ -139,13 +139,13 @@ public:
 #define KEY_INSERT		(CONTROL_KEY|0x0C)
 
 
-#define KEY_COMPLETE	(NXGN_KEY|0x00)
-#define KEY_ERROR		(NXGN_KEY|0x01)
-//#define KEY_DATA_ABORT	(NXGN_KEY|0x02)
-#define KEY_CANCEL		(NXGN_KEY|0x03)
-#define KEY_NOT_EXIST	(NXGN_KEY|0x04)
+#define KEY_COMPLETE	(KW_KEY|0x00)
+#define KEY_ERROR		(KW_KEY|0x01)
+//#define KEY_DATA_ABORT	(KW_KEY|0x02)
+#define KEY_CANCEL		(KW_KEY|0x03)
+#define KEY_NOT_EXIST	(KW_KEY|0x04)
 
-#define KEY_UNDEFINE	(NXGN_KEY|0xFF)
+#define KEY_UNDEFINE	(KW_KEY|0xFF)
 
 
 #define KEY_NOT_ALLOW	0xFF

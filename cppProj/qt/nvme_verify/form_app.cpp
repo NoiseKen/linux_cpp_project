@@ -172,11 +172,11 @@ FormApp::on_action_trigger(QObject *sender)
 		QString str;	
 #if 1		
 		str = 
-			//"<img src=\"icon_nxgn.ico\" alt=\"NxGn\" width=\"200px\" height=\"300px\">"
-			"<img src=\"ngd_transparent_final.gif\" alt=\"NxGn\" width=\"240\" height=\"60\"><br>"
+			//"<img src=\"icon_kw.ico\" alt=\"KW\" width=\"200px\" height=\"300px\">"
+			"<img src=\"ngd_transparent_final.gif\" alt=\"KW\" width=\"240\" height=\"60\"><br>"
 			"<strong><em>proprietary & confidential, All right reserved</em></strong>"
-			"<p><strong><em>2013-2014 NxGn Data Inc.</em></strong></p>"
-			"<p><a href=\"http://www.nxgndata.com\">http://www.nxgndata.com</a></p><br>"
+			"<p><strong><em>2013-2014 Ken Wang</em></strong></p>"
+			"<p><a href=\"http://www.kwdata.com\">http://www.kwdata.com</a></p><br>"
 			;		  
 		//str += QString().sprintf( "<p align=\"right\">Build Date : %s, %s</p>", __DATE__, __TIME__ );
 #endif		
@@ -361,7 +361,7 @@ FormApp::on_btn_click(QObject *sender)
 			*html << "Install verify nvmd.ko ... ";			
 			//system_call("insmod", QStringList() << QString("%1/work/cppProj/nvme/myNVMe/drivers/block/nvme.ko").arg(QDir::homePath()), *html);
 			system_call("insmod", QStringList() << LibExtract().get_config_value(LibExtract::KEY_VERIFY_DRIVER), *html);
-			//system_task_management(true, QStringList() << "insmod" << LibExtract().get_config_value(LibExtract::KEY_NXGN_DRIVER));
+			//system_task_management(true, QStringList() << "insmod" << LibExtract().get_config_value(LibExtract::KEY_KW_DRIVER));
 			//while(system!=NULL);
 		}
 		else
@@ -473,7 +473,7 @@ FormApp::on_btn_click(QObject *sender)
 		if(nvmeOP.cbw.ioStatus<0)
 		{//nvme io pass through fail			
 			//HtmlString::ColorStr cstr(HtmlString::colorRed, 
-			//			"\nplease make sure used correct NXGN nvme driver, or user have root permission!!");			
+			//			"\nplease make sure used correct KW nvme driver, or user have root permission!!");			
 			//html << cstr;
 		}
 		else
@@ -1304,7 +1304,7 @@ FormApp::gui_init(void)
 	nsAttributeTitle->setText("Namespace[1] Attributes :");	
 	on_device_state_change();
 	on_ns_arrtibute_change();
-	//qApp->setWindowIcon(QIcon("icon_nxgn.ico"));
+	//qApp->setWindowIcon(QIcon("icon_kw.ico"));
 	
 	
 	statusBar->addWidget(stateTitle);

@@ -6,7 +6,7 @@
 const std::string LibExtract::libFile = "admin_ds.lib";
 const std::string LibExtract::configFile = "config.dat";
 const std::string LibExtract::keyTable[KEY_MAX]={
-	TO_STR(KEY_NXGN_DRIVER),
+	TO_STR(KEY_KW_DRIVER),
 	TO_STR(KEY_CMPL_DRIVER),
 	TO_STR(KEY_TEST_IOMETER),
 	TO_STR(KEY_TEST_TNVME),
