@@ -1,8 +1,8 @@
-KEY_NXGN_DRIVER=../myNVMe/drivers/block/nvme.ko
+KEY_KW_DRIVER=../myNVMe/drivers/block/nvme.ko
 KEY_CMPL_DRIVER=~/work/compliance/dnvme/dnvme.ko
 KEY_TEST_IOMETER=~/work/iometer/src/dynamo
 KEY_TEST_TNVME=./runtnvme.sh
-KEY_CMPLMGN_PATH=/home/nxgn/work/compliance/manage
+KEY_CMPLMGN_PATH=/home/kw/work/compliance/manage
 KEY_NODE_DEV=/dev/nvme0
 KEY_NODE_BLK=/dev/nvme0n1
 KEY_STR_HIS_DEPTH=128

@@ -36,7 +36,7 @@ arg_decode(char *arg)
 		parStr = &arg[1];		
 		parInt = atoi(parStr);
 		switch(parInt)
-		{	//NXGN driver
+		{	//KW driver
 			case 0x00:	//test admin command
 			case 0x01:	//test nvme command
 				prog = menu_direct_task(TASK_DRIVER_BASIC, OP_DRIVER_REPLACE, 0);

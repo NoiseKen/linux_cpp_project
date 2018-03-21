@@ -81,9 +81,9 @@ driver_system_call(MenuSystemExport *par)
 			system_call("rmmod dnvme.ko");			
 					
 			if(par->parameter[0]==0)
-			{//use nxgn driver			
-				//get_config_value(TO_STR(KEY_NXGN_DRIVER), value);
-				value = ValueList::get_config_value(APP_CONFIG_FILE_NAME, TO_STR(KEY_NXGN_DRIVER));
+			{//use KW driver			
+				//get_config_value(TO_STR(KEY_KW_DRIVER), value);
+				value = ValueList::get_config_value(APP_CONFIG_FILE_NAME, TO_STR(KEY_KW_DRIVER));
 				//lstr.sprintf("insmod %s", value);
 				lstr << "insmod " << value;
 			
@@ -179,7 +179,7 @@ task_driver_basic_init(unsigned char op)
 	{
 		case OP_DRIVER_REPLACE:
 			menu_show_report(iReport++, (TStr)"associated Driver :");
-			menu_show_report(iReport++, (TStr)" 0 : NxGn driver");
+			menu_show_report(iReport++, (TStr)" 0 : KW driver");
 			menu_show_report(iReport++, (TStr)" 1 : dnvme, for compliance test"); 
 			menu_show_report(iReport++, (TStr)" 2 : standard driver, for generial disk test");
 			menu_question_push((TStr)"please select associated driver :", modeDEC, 1);

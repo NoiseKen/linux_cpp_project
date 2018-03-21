@@ -1,6 +1,0 @@
-ccflags-y := -I$(src)/../../include -I$(src) -I$(src)/../../../myIOCTL
-obj-m += nvme.o
-# for normal nvme driver
-# nvme-y := nvme-core.o nvme-scsi.o
-# for NXGN nvme driver
- nvme-y := nxgn-core.o nvme-scsi.o nvme-vendor.o

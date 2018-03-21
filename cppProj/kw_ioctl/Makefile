@@ -17,7 +17,7 @@
 # See: https://github.com/nvmecompliance/tnvme/wiki/Compiling
 
 CC  = g++ -O -Wall -Wno-unused-result
-EXE = nxgn_ioctl.exe
+EXE = kw_ioctl.exe
 LIBRARY = ../../library
 LIB_INC = $(LIBRARY)/include
 LIB_SRC = $(LIBRARY)/src
