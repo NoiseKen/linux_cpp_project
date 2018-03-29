@@ -63,7 +63,7 @@ ActionDump::issue(std::string path)
             else
             {
                 sc=memDump->save_to(_dumpFile, memsize);
-                printf("Save Dump file to [%s]\n", _dumpFile.c_str());//, DiskIoEx::decode_sc(sc).c_str());
+                printf("Save Dump file to [%s]\n", _dumpFile.c_str());
             }
             delete memDump;
             #if 0

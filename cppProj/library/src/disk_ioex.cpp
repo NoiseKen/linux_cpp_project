@@ -5,7 +5,6 @@
 #include <linux/fs.h>
 #include "disk_ioex.h"
 #include "legacy_string.h"
-#include "nvme.h"
 #include "utils.h"
 
 //---------------------------------------------------------------------------
@@ -140,34 +139,6 @@ DiskIoEx::decode_sc(int sc)
     {//nomal status code
 		switch(sc)
 		{
-			CASE_TO_STR(NVME_SC_SUCCESS);
-            CASE_TO_STR(NVME_SC_INVALID_OPCODE);
-			CASE_TO_STR(NVME_SC_INVALID_FIELD);
-			CASE_TO_STR(NVME_SC_CMDID_CONFLICT);
-			//CASE_TO_STR(NVME_SC_DATA_XFER_ERR);
-			//CASE_TO_STR(NVME_SC_ABORT_DUE_TO_POWER_LOSS);
-			//CASE_TO_STR(NVME_SC_INTERNAL_ERR);
-			CASE_TO_STR(NVME_SC_ABORT_REQ);
-			CASE_TO_STR(NVME_SC_INVALID_NS);
-			CASE_TO_STR(NVME_SC_CMD_SEQ_ERROR);
-			//CASE_TO_STR(NVME_SC_INVALID_PRP_OFFSET);
-			//CASE_TO_STR(NVME_SC_LBA_OUT_OF_RANGE);
-			CASE_TO_STR(NVME_SC_CAP_EXCEEDED);
-			CASE_TO_STR(NVME_SC_NS_NOT_READY);
-			//CASE_TO_STR(NVME_SC_FORMAT_IN_PROGRESS);
-			//CASE_TO_STR(NVME_SC_INVALID_FW_SLOT);
-			//CASE_TO_STR(NVME_SC_INVALID_FW_IMAGE);
-			CASE_TO_STR(NVME_SC_INVALID_LOG_PAGE);
-			//CASE_TO_STR(NVME_SC_FW_ACTIVATION_REQ_CONVENTIONAL_RESET);
-			//CASE_TO_STR(NVME_SC_FID_NOT_SAVEABLE);
-			//CASE_TO_STR(NVME_SC_FEATURE_NOT_CHANGEABLE);
-			//CASE_TO_STR(NVME_SC_FEATURE_NOT_NS_SPECIFIC);
-			//CASE_TO_STR(NVME_SC_FW_ACTIVATION_REQ_NSSR);
-			//CASE_TO_STR(NVME_SC_FW_ACTIVATION_REQ_RESET);
-			//CASE_TO_STR(NVME_SC_FW_IMG_OVERLAPPING_RANGE);
-			//CASE_TO_STR(NVME_SC_WRITE_READ_ONLY_RANGE);
-
-            CASE_TO_STR(NOT_SUPPORT_YET);
             CASE_TO_STR(RESOURCE_INVALID);
             CASE_TO_STR(TASK_CANCEL);
             CASE_TO_STR(NOT_EXPECTED_RESULT);                        
@@ -175,7 +146,7 @@ DiskIoEx::decode_sc(int sc)
             CASE_TO_STR(TIME_STAMP_MIS_MATCH);
             CASE_TO_STR(TIME_STAMP_NOT_FOUND);
 			default:
-				desc = lstr.sprintf("0x%04X (sc=0x%02X, sct=0x%02X)", sc, (sc>>0)&0xFF, (sc>>8)&0x07);
+				desc = lstr.sprintf("Undefined");
 				break;
         }
     }

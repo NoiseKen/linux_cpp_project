@@ -2,11 +2,11 @@
 #include <unistd.h>
 //---------------------------------------------------------------------------
 void 
-ThreadLocker::acquire(void)
+ThreadLocker::acquire(unsigned int usec)
 {
     while(this->__locked)
     {
-        usleep(1000);
+        usleep(usec);
     }
     this->__locked=true;
 };

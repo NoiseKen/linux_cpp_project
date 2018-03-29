@@ -99,7 +99,7 @@ FunIoEx::exec(int argc, char* argv[], uint8_t nthDev, std::string dd)
                     delete memDebug;
                 }
 
-                printf("IO Extension exec : sc = %s\n", DiskIoEx::decode_sc(sc).c_str());
+                printf("IO Extension exec : sc = %s\n", NVMeIoEx::decode_sc(sc).c_str());
                 if(NVME_SC_SUCCESS==sc)
                 {
                     ioex->post();

@@ -4,7 +4,7 @@
 #include "memory.h"
 #include "nvme_ioex.h"
 #include "legacy_string.h"
-#include "nvme.h"
+#include "nvme_status.h"
 //---------------------------------------------------------------------------
 uint32_t NVMeIoEx::allocBufSize=1024*1024;
 //---------------------------------------------------------------------------
@@ -18,6 +18,119 @@ uint32_t NVMeIoEx::allocBufSize=1024*1024;
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
+std::string 
+NVMeIoEx::decode_sc(int sc)
+{
+#define CASE_TO_STR(n)		case n:desc = #n;break
+    std::string desc;
+    LegacyString lstr;
+    if(sc<0)
+    {//system failure
+        desc=lstr.sprintf("%d, %s", sc, strerror(-sc));
+    }
+    else
+    {//nomal status code
+        switch(sc)
+        {
+            CASE_TO_STR(NVME_SC_SUCCESS);
+            CASE_TO_STR(NVME_SC_INVALID_OPCODE);
+            CASE_TO_STR(NVME_SC_INVALID_FIELD);
+            CASE_TO_STR(NVME_SC_CMDID_CONFLICT);
+            CASE_TO_STR(NVME_SC_DATA_XFER_ERROR);
+            CASE_TO_STR(NVME_SC_POWER_LOSS);
+            CASE_TO_STR(NVME_SC_INTERNAL);
+            CASE_TO_STR(NVME_SC_ABORT_REQ);
+            CASE_TO_STR(NVME_SC_ABORT_QUEUE);
+            CASE_TO_STR(NVME_SC_FUSED_FAIL);
+            CASE_TO_STR(NVME_SC_FUSED_MISSING);
+            CASE_TO_STR(NVME_SC_INVALID_NS);
+            CASE_TO_STR(NVME_SC_CMD_SEQ_ERROR);
+            CASE_TO_STR(NVME_SC_SGL_INVALID_LAST);
+            CASE_TO_STR(NVME_SC_SGL_INVALID_COUNT);
+            CASE_TO_STR(NVME_SC_SGL_INVALID_DATA);
+            CASE_TO_STR(NVME_SC_SGL_INVALID_METADATA);
+            CASE_TO_STR(NVME_SC_SGL_INVALID_TYPE);
+
+            CASE_TO_STR(NVME_SC_SGL_INVALID_OFFSET);
+            CASE_TO_STR(NVME_SC_SGL_INVALID_SUBTYPE);
+
+            CASE_TO_STR(NVME_SC_LBA_RANGE);
+            CASE_TO_STR(NVME_SC_CAP_EXCEEDED);
+            CASE_TO_STR(NVME_SC_NS_NOT_READY);
+            CASE_TO_STR(NVME_SC_RESERVATION_CONFLICT);
+
+            /*
+             * Command Specific Status:
+             */
+            CASE_TO_STR(NVME_SC_CQ_INVALID);
+            CASE_TO_STR(NVME_SC_QID_INVALID);
+            CASE_TO_STR(NVME_SC_QUEUE_SIZE);
+            CASE_TO_STR(NVME_SC_ABORT_LIMIT);
+            CASE_TO_STR(NVME_SC_ABORT_MISSING);
+            CASE_TO_STR(NVME_SC_ASYNC_LIMIT);
+            CASE_TO_STR(NVME_SC_FIRMWARE_SLOT);
+            CASE_TO_STR(NVME_SC_FIRMWARE_IMAGE);
+            CASE_TO_STR(NVME_SC_INVALID_VECTOR);
+            CASE_TO_STR(NVME_SC_INVALID_LOG_PAGE);
+            CASE_TO_STR(NVME_SC_INVALID_FORMAT);
+            CASE_TO_STR(NVME_SC_FW_NEEDS_CONV_RESET);
+            CASE_TO_STR(NVME_SC_INVALID_QUEUE);
+            CASE_TO_STR(NVME_SC_FEATURE_NOT_SAVEABLE);
+            CASE_TO_STR(NVME_SC_FEATURE_NOT_CHANGEABLE);
+            CASE_TO_STR(NVME_SC_FEATURE_NOT_PER_NS);
+            CASE_TO_STR(NVME_SC_FW_NEEDS_SUBSYS_RESET);
+            CASE_TO_STR(NVME_SC_FW_NEEDS_RESET);
+            CASE_TO_STR(NVME_SC_FW_NEEDS_MAX_TIME);
+            CASE_TO_STR(NVME_SC_FW_ACIVATE_PROHIBITED);
+            CASE_TO_STR(NVME_SC_OVERLAPPING_RANGE);
+            CASE_TO_STR(NVME_SC_NS_INSUFFICENT_CAP);
+            CASE_TO_STR(NVME_SC_NS_ID_UNAVAILABLE);
+            CASE_TO_STR(NVME_SC_NS_ALREADY_ATTACHED);
+            CASE_TO_STR(NVME_SC_NS_IS_PRIVATE);
+            CASE_TO_STR(NVME_SC_NS_NOT_ATTACHED);
+            CASE_TO_STR(NVME_SC_THIN_PROV_NOT_SUPP);
+            CASE_TO_STR(NVME_SC_CTRL_LIST_INVALID);
+
+            /*
+             * I/O Command Set Specific - NVM commands:
+             */
+            CASE_TO_STR(NVME_SC_BAD_ATTRIBUTES);
+            CASE_TO_STR(NVME_SC_INVALID_PI);
+            CASE_TO_STR(NVME_SC_READ_ONLY);
+
+            #if 0
+            /*
+             * I/O Command Set Specific - Fabrics commands:
+             */
+            CASE_TO_STR(NVME_SC_CONNECT_FORMAT);
+            CASE_TO_STR(NVME_SC_CONNECT_CTRL_BUSY);
+            CASE_TO_STR(NVME_SC_CONNECT_INVALID_PARAM);
+            CASE_TO_STR(NVME_SC_CONNECT_RESTART_DISC);
+            CASE_TO_STR(NVME_SC_CONNECT_INVALID_HOST);
+
+            CASE_TO_STR(NVME_SC_DISCOVERY_RESTART);
+            CASE_TO_STR(NVME_SC_AUTH_REQUIRED);
+            #endif
+
+            /*
+             * Media and Data Integrity Errors:
+             */
+            CASE_TO_STR(NVME_SC_WRITE_FAULT);
+            CASE_TO_STR(NVME_SC_READ_ERROR);
+            CASE_TO_STR(NVME_SC_GUARD_CHECK);
+            CASE_TO_STR(NVME_SC_APPTAG_CHECK);
+            CASE_TO_STR(NVME_SC_REFTAG_CHECK);
+            CASE_TO_STR(NVME_SC_COMPARE_FAILED);
+            CASE_TO_STR(NVME_SC_ACCESS_DENIED);
+            CASE_TO_STR(NVME_SC_UNWRITTEN_BLOCK);
+            default:
+                desc = lstr.sprintf("0x%04X (sc=0x%02X, sct=0x%02X)", sc, (sc>>0)&0xFF, (sc>>8)&0x07);
+                break;
+        }
+    }
+    return desc;
+#undef CASE_TO_STR  //(n)		case n:desc = #n;break
+}
 //---------------------------------------------------------------------------
 void 
 NVMeIoEx::_save_dmc_log(int *expect, int *actual, uint64_t lba, IoExPlan *plan)
@@ -148,7 +261,7 @@ NVMeIoEx::cancel(void)
         //sc=this->io_cancel(plan->rwHandler);
         this->io_cancel(plan->rwHandler);
         //LegacyString line;
-        //rep << line.sprintf("Cancel IO[%d] -- %d [%s]\n", plan->tag, sc, DiskIoEx::decode_sc(sc).c_str());
+        //rep << line.sprintf("Cancel IO[%d] -- %d [%s]\n", plan->tag, sc, NVMeIoEx::decode_sc(sc).c_str());
     }
 }
 //---------------------------------------------------------------------------
@@ -412,6 +525,7 @@ NVMeIoEx::NVMeIoEx(uint8_t nthDev, uint8_t nsid, uint64_t slba, uint64_t nlb, ui
     , __consoleLog(log), __timeStampConsle(timeStamp)
 {
     __planList=new std::list<IoExPlan *>();
+    /*
     int blk = this->get_block_size();
     if(blk>0)
     {
@@ -422,6 +536,7 @@ NVMeIoEx::NVMeIoEx(uint8_t nthDev, uint8_t nsid, uint64_t slba, uint64_t nlb, ui
         rep << "Unexpected nlb size can not retrieved from ioctl!!\n";
         _statusCode=-1;
     }
+    */
 }
 //---------------------------------------------------------------------------
 NVMeIoEx::NVMeIoEx(std::string devPath, uint64_t slba, uint64_t nlb, uint32_t qDepth

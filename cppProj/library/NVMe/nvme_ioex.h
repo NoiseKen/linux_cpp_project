@@ -14,6 +14,7 @@ class NVMeIoEx : public DiskIoEx
 {
 public:
 	static uint32_t allocBufSize;
+    static std::string decode_sc(int sc);
     uint64_t const testSlba;
     uint64_t const totalNlb;
     uint32_t const testQDepth;

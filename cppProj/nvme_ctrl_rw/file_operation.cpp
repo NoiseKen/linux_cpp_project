@@ -1,6 +1,7 @@
 #include "file_operation.h"
 #include "disk_ioex.h"
 #include "nvme.h"
+#include "nvme_ioex.h"
 #include "fop_read.h"
 #include "fop_write.h"
 //#include "fop_write_pattern.h"
@@ -88,7 +89,7 @@ FileOperation::exec(int argc, char* argv[], uint8_t nthDev)
             if(fop->is_valid())
             {
                 sc = fop->issue(nthDev);
-                printf("FOP exec : sc = %s\n", DiskIoEx::decode_sc(sc).c_str());
+                printf("FOP exec : sc = %s\n", NVMeIoEx::decode_sc(sc).c_str());
                 if(NVME_SC_SUCCESS==sc)
                 {
                     fop->post();
