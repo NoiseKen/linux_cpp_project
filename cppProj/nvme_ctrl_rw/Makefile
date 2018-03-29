@@ -90,6 +90,7 @@ main.o: /usr/include/asm/errno.h /usr/include/asm-generic/errno.h
 main.o: /usr/include/asm-generic/errno-base.h /usr/include/stdio.h
 main.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
 main.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+main.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
 main.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
 main.o: /usr/include/malloc.h console_function.h
 main.o: ../library/include/console_arguments.h
@@ -101,22 +102,22 @@ main.o: /usr/include/bits/byteswap-16.h /usr/include/sys/types.h
 main.o: /usr/include/time.h /usr/include/sys/select.h
 main.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 main.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-main.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-main.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-main.o: ../library/include/extension_string.h ../library/include/sys_ctrl.h
-main.o: /usr/include/linux/limits.h ../library/include/file_ctrl.h
-main.o: fun_action.h fun_ioex.h file_operation.h
-main.o: ../library/include/disk_ioex.h /usr/include/sys/ioctl.h
-main.o: /usr/include/bits/ioctls.h /usr/include/asm/ioctls.h
-main.o: /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h
-main.o: /usr/include/asm/ioctl.h /usr/include/asm-generic/ioctl.h
-main.o: /usr/include/bits/ioctl-types.h /usr/include/sys/ttydefaults.h
-main.o: ../library/include/disk_io.h ../library/include/io_ctrl.h
-main.o: /usr/include/fcntl.h /usr/include/bits/fcntl.h
-main.o: /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h
-main.o: ../library/include/async_rw_handler.h ../library/include/async_cmd.h
-main.o: /usr/include/stdint.h /usr/include/bits/wchar.h /usr/include/aio.h
-main.o: /usr/include/bits/siginfo.h ../library/include/report_channel.h
+main.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+main.o: /usr/include/assert.h ../library/include/extension_string.h
+main.o: ../library/include/sys_ctrl.h /usr/include/linux/limits.h
+main.o: ../library/include/file_ctrl.h fun_action.h fun_ioex.h
+main.o: file_operation.h ../library/include/disk_ioex.h
+main.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
+main.o: /usr/include/asm/ioctls.h /usr/include/asm-generic/ioctls.h
+main.o: /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h
+main.o: /usr/include/asm-generic/ioctl.h /usr/include/bits/ioctl-types.h
+main.o: /usr/include/sys/ttydefaults.h ../library/include/disk_io.h
+main.o: ../library/include/io_ctrl.h /usr/include/fcntl.h
+main.o: /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h
+main.o: /usr/include/bits/stat.h ../library/include/async_rw_handler.h
+main.o: ../library/include/async_cmd.h /usr/include/stdint.h
+main.o: /usr/include/aio.h /usr/include/bits/siginfo.h
+main.o: ../library/include/report_channel.h
 main.o: ../library/include/thread_locker.h kw_ioctl.h ./linux/lightnvm.h
 main.o: /usr/include/linux/types.h /usr/include/asm/types.h
 main.o: /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h
@@ -130,7 +131,8 @@ console_function.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
 console_function.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
 console_function.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
 console_function.o: /usr/include/libio.h /usr/include/_G_config.h
-console_function.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+console_function.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+console_function.o: /usr/include/xlocale.h /usr/include/bits/stdio_lim.h
 console_function.o: /usr/include/bits/sys_errlist.h console_function.h
 console_function.o: ../library/include/console_arguments.h
 console_function.o: ../library/include/global_variable.h
@@ -142,9 +144,9 @@ console_function.o: /usr/include/bits/byteswap-16.h /usr/include/sys/types.h
 console_function.o: /usr/include/time.h /usr/include/sys/select.h
 console_function.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 console_function.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-console_function.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-console_function.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-console_function.o: ../library/include/sys_ctrl.h /usr/include/linux/limits.h
+console_function.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+console_function.o: /usr/include/assert.h ../library/include/sys_ctrl.h
+console_function.o: /usr/include/linux/limits.h
 console_function.o: ../library/include/file_ctrl.h
 fun_action.o: fun_action.h ../library/include/console_arguments.h
 fun_action.o: ../library/include/global_variable.h
@@ -159,15 +161,15 @@ fun_action.o: /usr/include/bits/byteswap-16.h /usr/include/sys/types.h
 fun_action.o: /usr/include/time.h /usr/include/sys/select.h
 fun_action.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 fun_action.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-fun_action.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-fun_action.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-fun_action.o: action_read.h action_base.h /usr/include/sys/mman.h
-fun_action.o: /usr/include/bits/mman.h /usr/include/fcntl.h
-fun_action.o: /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h
-fun_action.o: /usr/include/bits/stat.h /usr/include/unistd.h
-fun_action.o: /usr/include/bits/posix_opt.h /usr/include/bits/environments.h
-fun_action.o: /usr/include/bits/confname.h /usr/include/getopt.h
-fun_action.o: action_write.h action_reset.h action_dump.h
+fun_action.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+fun_action.o: /usr/include/assert.h action_read.h action_base.h
+fun_action.o: /usr/include/sys/mman.h /usr/include/bits/mman.h
+fun_action.o: /usr/include/fcntl.h /usr/include/bits/fcntl.h
+fun_action.o: /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h
+fun_action.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+fun_action.o: /usr/include/bits/environments.h /usr/include/bits/confname.h
+fun_action.o: /usr/include/getopt.h action_write.h action_reset.h
+fun_action.o: action_dump.h
 fun_ioex.o: fun_ioex.h ../library/include/console_arguments.h
 fun_ioex.o: ../library/include/global_variable.h
 fun_ioex.o: ../library/include/property.h /usr/include/stdlib.h
@@ -181,18 +183,18 @@ fun_ioex.o: /usr/include/bits/byteswap-16.h /usr/include/sys/types.h
 fun_ioex.o: /usr/include/time.h /usr/include/sys/select.h
 fun_ioex.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 fun_ioex.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-fun_ioex.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-fun_ioex.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-fun_ioex.o: ./ioex_cmd/ioex_dummy_read.h ./ioex_cmd/ioex_cmd.h
-fun_ioex.o: ../library/NVMe/nvme_ioex.h ../library/include/disk_ioex.h
-fun_ioex.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
-fun_ioex.o: /usr/include/asm/ioctls.h /usr/include/asm-generic/ioctls.h
-fun_ioex.o: /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h
-fun_ioex.o: /usr/include/asm-generic/ioctl.h /usr/include/bits/ioctl-types.h
-fun_ioex.o: /usr/include/sys/ttydefaults.h ../library/include/disk_io.h
-fun_ioex.o: ../library/include/io_ctrl.h /usr/include/fcntl.h
-fun_ioex.o: /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h
-fun_ioex.o: /usr/include/bits/stat.h ../library/include/async_rw_handler.h
+fun_ioex.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+fun_ioex.o: /usr/include/assert.h ./ioex_cmd/ioex_dummy_read.h
+fun_ioex.o: ./ioex_cmd/ioex_cmd.h ../library/NVMe/nvme_ioex.h
+fun_ioex.o: ../library/include/disk_ioex.h /usr/include/sys/ioctl.h
+fun_ioex.o: /usr/include/bits/ioctls.h /usr/include/asm/ioctls.h
+fun_ioex.o: /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h
+fun_ioex.o: /usr/include/asm/ioctl.h /usr/include/asm-generic/ioctl.h
+fun_ioex.o: /usr/include/bits/ioctl-types.h /usr/include/sys/ttydefaults.h
+fun_ioex.o: ../library/include/disk_io.h ../library/include/io_ctrl.h
+fun_ioex.o: /usr/include/fcntl.h /usr/include/bits/fcntl.h
+fun_ioex.o: /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h
+fun_ioex.o: ../library/include/async_rw_handler.h
 fun_ioex.o: ../library/include/async_cmd.h /usr/include/stdint.h
 fun_ioex.o: /usr/include/bits/wchar.h /usr/include/aio.h
 fun_ioex.o: /usr/include/bits/siginfo.h ../library/include/report_channel.h
@@ -225,8 +227,8 @@ action_base.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
 action_base.o: /usr/include/sys/types.h /usr/include/sys/select.h
 action_base.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 action_base.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-action_base.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-action_base.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
+action_base.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+action_base.o: /usr/include/assert.h
 action_read.o: action_read.h action_base.h /usr/include/sys/mman.h
 action_read.o: /usr/include/features.h /usr/include/stdc-predef.h
 action_read.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
@@ -246,9 +248,8 @@ action_read.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
 action_read.o: /usr/include/sys/types.h /usr/include/sys/select.h
 action_read.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 action_read.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-action_read.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-action_read.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-action_read.o: fun_action.h ../library/include/utils.h
+action_read.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+action_read.o: /usr/include/assert.h fun_action.h ../library/include/utils.h
 action_read.o: /usr/include/linux/types.h /usr/include/asm/types.h
 action_read.o: /usr/include/asm-generic/types.h
 action_read.o: /usr/include/asm-generic/int-ll64.h
@@ -277,9 +278,8 @@ action_write.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
 action_write.o: /usr/include/sys/types.h /usr/include/sys/select.h
 action_write.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 action_write.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-action_write.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-action_write.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-action_write.o: fun_action.h ../library/include/utils.h
+action_write.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+action_write.o: /usr/include/assert.h fun_action.h ../library/include/utils.h
 action_write.o: /usr/include/linux/types.h /usr/include/asm/types.h
 action_write.o: /usr/include/asm-generic/types.h
 action_write.o: /usr/include/asm-generic/int-ll64.h
@@ -309,9 +309,8 @@ action_reset.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
 action_reset.o: /usr/include/sys/types.h /usr/include/sys/select.h
 action_reset.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 action_reset.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-action_reset.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-action_reset.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-action_reset.o: fun_action.h ../library/include/utils.h
+action_reset.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+action_reset.o: /usr/include/assert.h fun_action.h ../library/include/utils.h
 action_reset.o: /usr/include/linux/types.h /usr/include/asm/types.h
 action_reset.o: /usr/include/asm-generic/types.h
 action_reset.o: /usr/include/asm-generic/int-ll64.h
@@ -341,13 +340,12 @@ action_dump.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
 action_dump.o: /usr/include/sys/types.h /usr/include/sys/select.h
 action_dump.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 action_dump.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-action_dump.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-action_dump.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-action_dump.o: fun_action.h ../library/include/disk_ioex.h
-action_dump.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
-action_dump.o: /usr/include/asm/ioctls.h /usr/include/asm-generic/ioctls.h
-action_dump.o: /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h
-action_dump.o: /usr/include/asm-generic/ioctl.h
+action_dump.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+action_dump.o: /usr/include/assert.h fun_action.h
+action_dump.o: ../library/include/disk_ioex.h /usr/include/sys/ioctl.h
+action_dump.o: /usr/include/bits/ioctls.h /usr/include/asm/ioctls.h
+action_dump.o: /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h
+action_dump.o: /usr/include/asm/ioctl.h /usr/include/asm-generic/ioctl.h
 action_dump.o: /usr/include/bits/ioctl-types.h /usr/include/sys/ttydefaults.h
 action_dump.o: ../library/include/disk_io.h ../library/include/io_ctrl.h
 action_dump.o: ../library/include/async_rw_handler.h
@@ -379,11 +377,10 @@ file_operation.o: /usr/include/bits/byteswap-16.h /usr/include/sys/types.h
 file_operation.o: /usr/include/time.h /usr/include/sys/select.h
 file_operation.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 file_operation.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-file_operation.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-file_operation.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-file_operation.o: ../library/include/disk_ioex.h /usr/include/sys/ioctl.h
-file_operation.o: /usr/include/bits/ioctls.h /usr/include/asm/ioctls.h
-file_operation.o: /usr/include/asm-generic/ioctls.h
+file_operation.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+file_operation.o: /usr/include/assert.h ../library/include/disk_ioex.h
+file_operation.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
+file_operation.o: /usr/include/asm/ioctls.h /usr/include/asm-generic/ioctls.h
 file_operation.o: /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h
 file_operation.o: /usr/include/asm-generic/ioctl.h
 file_operation.o: /usr/include/bits/ioctl-types.h
@@ -405,13 +402,14 @@ file_operation.o: /usr/include/asm-generic/bitsperlong.h
 file_operation.o: /usr/include/linux/posix_types.h
 file_operation.o: /usr/include/linux/stddef.h /usr/include/asm/posix_types.h
 file_operation.o: /usr/include/asm/posix_types_64.h
-file_operation.o: /usr/include/asm-generic/posix_types.h ./fop_cmd/fop_read.h
+file_operation.o: /usr/include/asm-generic/posix_types.h
+file_operation.o: ../library/NVMe/nvme_ioex.h ./fop_cmd/fop_read.h
 file_operation.o: ./fop_cmd/fop_cmd.h /usr/include/malloc.h
 file_operation.o: /usr/include/stdio.h /usr/include/libio.h
 file_operation.o: /usr/include/_G_config.h /usr/include/wchar.h
-file_operation.o: /usr/include/bits/stdio_lim.h
+file_operation.o: /usr/include/xlocale.h /usr/include/bits/stdio_lim.h
 file_operation.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
+file_operation.o: ./fop_cmd/fop_write.h
 ../library/src/io_ctrl.o: /usr/include/unistd.h /usr/include/features.h
 ../library/src/io_ctrl.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
 ../library/src/io_ctrl.o: /usr/include/bits/wordsize.h
@@ -441,9 +439,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/io_ctrl.o: /usr/include/sys/types.h /usr/include/sys/select.h
 ../library/src/io_ctrl.o: /usr/include/bits/select.h
 ../library/src/io_ctrl.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-../library/src/io_ctrl.o: /usr/include/sys/sysmacros.h
-../library/src/io_ctrl.o: /usr/include/bits/pthreadtypes.h
-../library/src/io_ctrl.o: /usr/include/alloca.h
+../library/src/io_ctrl.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ../library/src/io_ctrl.o: /usr/include/bits/stdlib-float.h
 ../library/src/io_ctrl.o: /usr/include/assert.h
 ../library/src/disk_io.o: /usr/include/fcntl.h /usr/include/features.h
@@ -475,9 +471,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/disk_io.o: /usr/include/sys/types.h /usr/include/sys/select.h
 ../library/src/disk_io.o: /usr/include/bits/select.h
 ../library/src/disk_io.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-../library/src/disk_io.o: /usr/include/sys/sysmacros.h
-../library/src/disk_io.o: /usr/include/bits/pthreadtypes.h
-../library/src/disk_io.o: /usr/include/alloca.h
+../library/src/disk_io.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ../library/src/disk_io.o: /usr/include/bits/stdlib-float.h
 ../library/src/disk_io.o: /usr/include/assert.h ../library/include/io_ctrl.h
 ../library/src/disk_io.o: ../library/include/async_rw_handler.h
@@ -499,6 +493,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/disk_ioex.o: /usr/include/xlocale.h /usr/include/malloc.h
 ../library/src/disk_ioex.o: /usr/include/stdio.h /usr/include/libio.h
 ../library/src/disk_ioex.o: /usr/include/_G_config.h /usr/include/wchar.h
+../library/src/disk_ioex.o: /usr/include/bits/wchar.h
 ../library/src/disk_ioex.o: /usr/include/bits/stdio_lim.h
 ../library/src/disk_ioex.o: /usr/include/bits/sys_errlist.h
 ../library/src/disk_ioex.o: /usr/include/linux/fs.h
@@ -538,7 +533,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/disk_ioex.o: /usr/include/bits/sigset.h
 ../library/src/disk_ioex.o: /usr/include/bits/time.h
 ../library/src/disk_ioex.o: /usr/include/sys/sysmacros.h
-../library/src/disk_ioex.o: /usr/include/bits/pthreadtypes.h
 ../library/src/disk_ioex.o: /usr/include/alloca.h
 ../library/src/disk_ioex.o: /usr/include/bits/stdlib-float.h
 ../library/src/disk_ioex.o: /usr/include/assert.h
@@ -548,11 +542,11 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/disk_ioex.o: /usr/include/bits/stat.h
 ../library/src/disk_ioex.o: ../library/include/async_rw_handler.h
 ../library/src/disk_ioex.o: ../library/include/async_cmd.h
-../library/src/disk_ioex.o: /usr/include/stdint.h /usr/include/bits/wchar.h
-../library/src/disk_ioex.o: /usr/include/aio.h /usr/include/bits/siginfo.h
+../library/src/disk_ioex.o: /usr/include/stdint.h /usr/include/aio.h
+../library/src/disk_ioex.o: /usr/include/bits/siginfo.h
 ../library/src/disk_ioex.o: ../library/include/report_channel.h
 ../library/src/disk_ioex.o: ../library/include/thread_locker.h
-../library/src/disk_ioex.o: ../library/include/legacy_string.h nvme.h
+../library/src/disk_ioex.o: ../library/include/legacy_string.h
 ../library/src/disk_ioex.o: ../library/include/utils.h
 ../library/src/disk_ioex.o: /usr/include/sys/time.h
 ../library/NVMe/nvme_ioex.o: /usr/include/fcntl.h /usr/include/features.h
@@ -586,7 +580,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/nvme_ioex.o: /usr/include/bits/sigset.h
 ../library/NVMe/nvme_ioex.o: /usr/include/bits/time.h
 ../library/NVMe/nvme_ioex.o: /usr/include/sys/sysmacros.h
-../library/NVMe/nvme_ioex.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/nvme_ioex.o: /usr/include/alloca.h
 ../library/NVMe/nvme_ioex.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/nvme_ioex.o: /usr/include/assert.h
@@ -608,18 +601,8 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/nvme_ioex.o: ../library/include/async_cmd.h
 ../library/NVMe/nvme_ioex.o: /usr/include/aio.h /usr/include/bits/siginfo.h
 ../library/NVMe/nvme_ioex.o: ../library/include/report_channel.h
-../library/NVMe/nvme_ioex.o: ../library/include/thread_locker.h nvme.h
-../library/NVMe/nvme_ioex.o: /usr/include/linux/types.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm/types.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm-generic/types.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm-generic/int-ll64.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm/bitsperlong.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm-generic/bitsperlong.h
-../library/NVMe/nvme_ioex.o: /usr/include/linux/posix_types.h
-../library/NVMe/nvme_ioex.o: /usr/include/linux/stddef.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm/posix_types.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm/posix_types_64.h
-../library/NVMe/nvme_ioex.o: /usr/include/asm-generic/posix_types.h
+../library/NVMe/nvme_ioex.o: ../library/include/thread_locker.h
+../library/NVMe/nvme_ioex.o: ../library/NVMe/nvme_status.h
 ../library/NVMe/nvme_ioex_seq.o: ../library/NVMe/nvme_ioex_seq.h
 ../library/NVMe/nvme_ioex_seq.o: ../library/NVMe/nvme_ioex.h
 ../library/NVMe/nvme_ioex_seq.o: ../library/include/property.h
@@ -643,7 +626,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/nvme_ioex_seq.o: /usr/include/bits/sigset.h
 ../library/NVMe/nvme_ioex_seq.o: /usr/include/bits/time.h
 ../library/NVMe/nvme_ioex_seq.o: /usr/include/sys/sysmacros.h
-../library/NVMe/nvme_ioex_seq.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/nvme_ioex_seq.o: /usr/include/alloca.h
 ../library/NVMe/nvme_ioex_seq.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/nvme_ioex_seq.o: /usr/include/assert.h
@@ -694,7 +676,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_fill_lba.o: /usr/include/assert.h
@@ -747,7 +728,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_fill_const.o: /usr/include/assert.h
@@ -800,7 +780,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_fill_increase.o: /usr/include/assert.h
@@ -853,7 +832,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_fill_decrease.o: /usr/include/assert.h
@@ -906,7 +884,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_dummy_read.o: /usr/include/assert.h
@@ -970,7 +947,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_rc.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_rc.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_rc.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_rc.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_rc.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_rc.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_rc.o: /usr/include/assert.h
@@ -1037,7 +1013,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_rc_const.o: /usr/include/assert.h
@@ -1103,7 +1078,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_rc_lba.o: /usr/include/assert.h
@@ -1170,7 +1144,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_rc_increase.o: /usr/include/assert.h
@@ -1237,7 +1210,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/bits/sigset.h
 ../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/bits/time.h
 ../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/sys/sysmacros.h
-../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/alloca.h
 ../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/legacy/nvme_task_rc_decrease.o: /usr/include/assert.h
@@ -1292,7 +1264,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_fill_lba.o: /usr/include/assert.h
@@ -1346,7 +1317,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_fill_const.o: /usr/include/assert.h
@@ -1400,7 +1370,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_fill_increase.o: /usr/include/assert.h
@@ -1454,7 +1423,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_fill_decrease.o: /usr/include/assert.h
@@ -1508,7 +1476,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_dummy_read.o: /usr/include/assert.h
@@ -1573,7 +1540,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_rc.o: /usr/include/assert.h
@@ -1641,7 +1607,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_rc_const.o: /usr/include/assert.h
@@ -1708,7 +1673,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_rc_lba.o: /usr/include/assert.h
@@ -1776,7 +1740,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_rc_increase.o: /usr/include/assert.h
@@ -1844,7 +1807,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/bits/sigset.h
 ../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/bits/time.h
 ../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/sys/sysmacros.h
-../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/bits/pthreadtypes.h
 ../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/alloca.h
 ../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/bits/stdlib-float.h
 ../library/NVMe/sequence/nvme_seq_rc_decrease.o: /usr/include/assert.h
@@ -1889,8 +1851,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./ioex_cmd/ioex_cmd.o: /usr/include/sys/types.h /usr/include/time.h
 ./ioex_cmd/ioex_cmd.o: /usr/include/sys/select.h /usr/include/bits/select.h
 ./ioex_cmd/ioex_cmd.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-./ioex_cmd/ioex_cmd.o: /usr/include/sys/sysmacros.h
-./ioex_cmd/ioex_cmd.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+./ioex_cmd/ioex_cmd.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ./ioex_cmd/ioex_cmd.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
 ./ioex_cmd/ioex_cmd.o: ../library/NVMe/nvme_ioex.h
 ./ioex_cmd/ioex_cmd.o: ../library/include/disk_ioex.h
@@ -1944,7 +1905,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./ioex_cmd/ioex_dummy_read.o: /usr/include/bits/sigset.h
 ./ioex_cmd/ioex_dummy_read.o: /usr/include/bits/time.h
 ./ioex_cmd/ioex_dummy_read.o: /usr/include/sys/sysmacros.h
-./ioex_cmd/ioex_dummy_read.o: /usr/include/bits/pthreadtypes.h
 ./ioex_cmd/ioex_dummy_read.o: /usr/include/alloca.h
 ./ioex_cmd/ioex_dummy_read.o: /usr/include/bits/stdlib-float.h
 ./ioex_cmd/ioex_dummy_read.o: /usr/include/assert.h ./ioex_cmd/ioex_cmd.h
@@ -2002,9 +1962,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./ioex_cmd/ioex_fill.o: /usr/include/sys/types.h /usr/include/time.h
 ./ioex_cmd/ioex_fill.o: /usr/include/sys/select.h /usr/include/bits/select.h
 ./ioex_cmd/ioex_fill.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-./ioex_cmd/ioex_fill.o: /usr/include/sys/sysmacros.h
-./ioex_cmd/ioex_fill.o: /usr/include/bits/pthreadtypes.h
-./ioex_cmd/ioex_fill.o: /usr/include/alloca.h
+./ioex_cmd/ioex_fill.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ./ioex_cmd/ioex_fill.o: /usr/include/bits/stdlib-float.h
 ./ioex_cmd/ioex_fill.o: /usr/include/assert.h ./ioex_cmd/ioex_cmd.h
 ./ioex_cmd/ioex_fill.o: ../library/include/console_arguments.h
@@ -2067,9 +2025,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./ioex_cmd/ioex_compare.o: /usr/include/bits/select.h
 ./ioex_cmd/ioex_compare.o: /usr/include/bits/sigset.h
 ./ioex_cmd/ioex_compare.o: /usr/include/bits/time.h
-./ioex_cmd/ioex_compare.o: /usr/include/sys/sysmacros.h
-./ioex_cmd/ioex_compare.o: /usr/include/bits/pthreadtypes.h
-./ioex_cmd/ioex_compare.o: /usr/include/alloca.h
+./ioex_cmd/ioex_compare.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ./ioex_cmd/ioex_compare.o: /usr/include/bits/stdlib-float.h
 ./ioex_cmd/ioex_compare.o: /usr/include/assert.h ./ioex_cmd/ioex_cmd.h
 ./ioex_cmd/ioex_compare.o: ../library/include/console_arguments.h
@@ -2125,9 +2081,9 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_cmd.o: /usr/include/gnu/stubs.h /usr/include/stdio.h
 ./fop_cmd/fop_cmd.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
 ./fop_cmd/fop_cmd.o: /usr/include/libio.h /usr/include/_G_config.h
-./fop_cmd/fop_cmd.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+./fop_cmd/fop_cmd.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+./fop_cmd/fop_cmd.o: /usr/include/xlocale.h /usr/include/bits/stdio_lim.h
 ./fop_cmd/fop_cmd.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-./fop_cmd/fop_cmd.o: /usr/include/xlocale.h
 ./fop_cmd/fop_cmd.o: ../library/include/console_arguments.h
 ./fop_cmd/fop_cmd.o: ../library/include/global_variable.h
 ./fop_cmd/fop_cmd.o: ../library/include/property.h /usr/include/stdlib.h
@@ -2138,10 +2094,10 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_cmd.o: /usr/include/time.h /usr/include/sys/select.h
 ./fop_cmd/fop_cmd.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 ./fop_cmd/fop_cmd.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-./fop_cmd/fop_cmd.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-./fop_cmd/fop_cmd.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
-./fop_cmd/fop_cmd.o: ../library/include/disk_ioex.h /usr/include/sys/ioctl.h
-./fop_cmd/fop_cmd.o: /usr/include/bits/ioctls.h /usr/include/asm/ioctls.h
+./fop_cmd/fop_cmd.o: /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+./fop_cmd/fop_cmd.o: /usr/include/assert.h ../library/include/disk_ioex.h
+./fop_cmd/fop_cmd.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
+./fop_cmd/fop_cmd.o: /usr/include/asm/ioctls.h
 ./fop_cmd/fop_cmd.o: /usr/include/asm-generic/ioctls.h
 ./fop_cmd/fop_cmd.o: /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h
 ./fop_cmd/fop_cmd.o: /usr/include/asm-generic/ioctl.h
@@ -2153,8 +2109,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_cmd.o: /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h
 ./fop_cmd/fop_cmd.o: ../library/include/async_rw_handler.h
 ./fop_cmd/fop_cmd.o: ../library/include/async_cmd.h /usr/include/stdint.h
-./fop_cmd/fop_cmd.o: /usr/include/bits/wchar.h /usr/include/aio.h
-./fop_cmd/fop_cmd.o: /usr/include/bits/siginfo.h
+./fop_cmd/fop_cmd.o: /usr/include/aio.h /usr/include/bits/siginfo.h
 ./fop_cmd/fop_cmd.o: ../library/include/report_channel.h
 ./fop_cmd/fop_cmd.o: ../library/include/thread_locker.h
 ./fop_cmd/fop_cmd.o: ../library/include/memory.h
@@ -2172,17 +2127,16 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_read.o: /usr/include/sys/types.h /usr/include/time.h
 ./fop_cmd/fop_read.o: /usr/include/sys/select.h /usr/include/bits/select.h
 ./fop_cmd/fop_read.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-./fop_cmd/fop_read.o: /usr/include/sys/sysmacros.h
-./fop_cmd/fop_read.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+./fop_cmd/fop_read.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ./fop_cmd/fop_read.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
 ./fop_cmd/fop_read.o: ./fop_cmd/fop_read.h ./fop_cmd/fop_cmd.h
 ./fop_cmd/fop_read.o: /usr/include/malloc.h /usr/include/stdio.h
 ./fop_cmd/fop_read.o: /usr/include/libio.h /usr/include/_G_config.h
-./fop_cmd/fop_read.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+./fop_cmd/fop_read.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+./fop_cmd/fop_read.o: /usr/include/xlocale.h /usr/include/bits/stdio_lim.h
 ./fop_cmd/fop_read.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-./fop_cmd/fop_read.o: /usr/include/xlocale.h ../library/include/disk_ioex.h
-./fop_cmd/fop_read.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
-./fop_cmd/fop_read.o: /usr/include/asm/ioctls.h
+./fop_cmd/fop_read.o: ../library/include/disk_ioex.h /usr/include/sys/ioctl.h
+./fop_cmd/fop_read.o: /usr/include/bits/ioctls.h /usr/include/asm/ioctls.h
 ./fop_cmd/fop_read.o: /usr/include/asm-generic/ioctls.h
 ./fop_cmd/fop_read.o: /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h
 ./fop_cmd/fop_read.o: /usr/include/asm-generic/ioctl.h
@@ -2195,8 +2149,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_read.o: /usr/include/bits/stat.h
 ./fop_cmd/fop_read.o: ../library/include/async_rw_handler.h
 ./fop_cmd/fop_read.o: ../library/include/async_cmd.h /usr/include/stdint.h
-./fop_cmd/fop_read.o: /usr/include/bits/wchar.h /usr/include/aio.h
-./fop_cmd/fop_read.o: /usr/include/bits/siginfo.h
+./fop_cmd/fop_read.o: /usr/include/aio.h /usr/include/bits/siginfo.h
 ./fop_cmd/fop_read.o: ../library/include/report_channel.h
 ./fop_cmd/fop_read.o: ../library/include/thread_locker.h
 ./fop_cmd/fop_read.o: ../library/include/legacy_string.h
@@ -2215,15 +2168,15 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_write.o: /usr/include/sys/types.h /usr/include/time.h
 ./fop_cmd/fop_write.o: /usr/include/sys/select.h /usr/include/bits/select.h
 ./fop_cmd/fop_write.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-./fop_cmd/fop_write.o: /usr/include/sys/sysmacros.h
-./fop_cmd/fop_write.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+./fop_cmd/fop_write.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
 ./fop_cmd/fop_write.o: /usr/include/bits/stdlib-float.h /usr/include/assert.h
 ./fop_cmd/fop_write.o: ./fop_cmd/fop_write.h ./fop_cmd/fop_cmd.h
 ./fop_cmd/fop_write.o: /usr/include/malloc.h /usr/include/stdio.h
 ./fop_cmd/fop_write.o: /usr/include/libio.h /usr/include/_G_config.h
-./fop_cmd/fop_write.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+./fop_cmd/fop_write.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+./fop_cmd/fop_write.o: /usr/include/xlocale.h /usr/include/bits/stdio_lim.h
 ./fop_cmd/fop_write.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
-./fop_cmd/fop_write.o: /usr/include/xlocale.h ../library/include/disk_ioex.h
+./fop_cmd/fop_write.o: ../library/include/disk_ioex.h
 ./fop_cmd/fop_write.o: /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h
 ./fop_cmd/fop_write.o: /usr/include/asm/ioctls.h
 ./fop_cmd/fop_write.o: /usr/include/asm-generic/ioctls.h
@@ -2238,8 +2191,7 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ./fop_cmd/fop_write.o: /usr/include/bits/stat.h
 ./fop_cmd/fop_write.o: ../library/include/async_rw_handler.h
 ./fop_cmd/fop_write.o: ../library/include/async_cmd.h /usr/include/stdint.h
-./fop_cmd/fop_write.o: /usr/include/bits/wchar.h /usr/include/aio.h
-./fop_cmd/fop_write.o: /usr/include/bits/siginfo.h
+./fop_cmd/fop_write.o: /usr/include/aio.h /usr/include/bits/siginfo.h
 ./fop_cmd/fop_write.o: ../library/include/report_channel.h
 ./fop_cmd/fop_write.o: ../library/include/thread_locker.h
 ./fop_cmd/fop_write.o: ../library/include/legacy_string.h
@@ -2274,7 +2226,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/async_cmd.o: /usr/include/bits/sigset.h
 ../library/src/async_cmd.o: /usr/include/bits/time.h
 ../library/src/async_cmd.o: /usr/include/sys/sysmacros.h
-../library/src/async_cmd.o: /usr/include/bits/pthreadtypes.h
 ../library/src/async_cmd.o: /usr/include/alloca.h
 ../library/src/async_cmd.o: /usr/include/bits/stdlib-float.h
 ../library/src/async_cmd.o: /usr/include/errno.h /usr/include/bits/errno.h
@@ -2312,7 +2263,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/async_rw_handler.o: /usr/include/bits/sigset.h
 ../library/src/async_rw_handler.o: /usr/include/bits/time.h
 ../library/src/async_rw_handler.o: /usr/include/sys/sysmacros.h
-../library/src/async_rw_handler.o: /usr/include/bits/pthreadtypes.h
 ../library/src/async_rw_handler.o: /usr/include/alloca.h
 ../library/src/async_rw_handler.o: /usr/include/bits/stdlib-float.h
 ../library/src/async_rw_handler.o: /usr/include/assert.h
@@ -2344,7 +2294,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/extension_string.o: /usr/include/bits/sigset.h
 ../library/src/extension_string.o: /usr/include/bits/time.h
 ../library/src/extension_string.o: /usr/include/sys/sysmacros.h
-../library/src/extension_string.o: /usr/include/bits/pthreadtypes.h
 ../library/src/extension_string.o: /usr/include/alloca.h
 ../library/src/extension_string.o: /usr/include/bits/stdlib-float.h
 ../library/src/extension_string.o: /usr/include/assert.h
@@ -2357,6 +2306,8 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/legacy_string.o: /usr/include/bits/typesizes.h
 ../library/src/legacy_string.o: /usr/include/libio.h /usr/include/_G_config.h
 ../library/src/legacy_string.o: /usr/include/wchar.h
+../library/src/legacy_string.o: /usr/include/bits/wchar.h
+../library/src/legacy_string.o: /usr/include/xlocale.h
 ../library/src/legacy_string.o: /usr/include/bits/stdio_lim.h
 ../library/src/legacy_string.o: /usr/include/bits/sys_errlist.h
 ../library/src/legacy_string.o: ../library/include/legacy_string.h
@@ -2374,7 +2325,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/legacy_string.o: /usr/include/bits/sigset.h
 ../library/src/legacy_string.o: /usr/include/bits/time.h
 ../library/src/legacy_string.o: /usr/include/sys/sysmacros.h
-../library/src/legacy_string.o: /usr/include/bits/pthreadtypes.h
 ../library/src/legacy_string.o: /usr/include/alloca.h
 ../library/src/legacy_string.o: /usr/include/bits/stdlib-float.h
 ../library/src/legacy_string.o: /usr/include/assert.h
@@ -2401,7 +2351,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/global_variable.o: /usr/include/bits/sigset.h
 ../library/src/global_variable.o: /usr/include/bits/time.h
 ../library/src/global_variable.o: /usr/include/sys/sysmacros.h
-../library/src/global_variable.o: /usr/include/bits/pthreadtypes.h
 ../library/src/global_variable.o: /usr/include/alloca.h
 ../library/src/global_variable.o: /usr/include/bits/stdlib-float.h
 ../library/src/global_variable.o: /usr/include/assert.h
@@ -2428,7 +2377,6 @@ file_operation.o: /usr/include/xlocale.h ./fop_cmd/fop_write.h
 ../library/src/console_arguments.o: /usr/include/bits/sigset.h
 ../library/src/console_arguments.o: /usr/include/bits/time.h
 ../library/src/console_arguments.o: /usr/include/sys/sysmacros.h
-../library/src/console_arguments.o: /usr/include/bits/pthreadtypes.h
 ../library/src/console_arguments.o: /usr/include/alloca.h
 ../library/src/console_arguments.o: /usr/include/bits/stdlib-float.h
 ../library/src/console_arguments.o: /usr/include/assert.h
