@@ -21,7 +21,7 @@ uint32_t NVMeIoEx::allocBufSize=1024*1024;
 std::string 
 NVMeIoEx::decode_sc(int sc)
 {
-#define CASE_TO_STR(n)		case n:desc = #n;break
+#define CASE_TO_STR(n)      case n:desc = #n;break
     std::string desc;
     LegacyString lstr;
     if(sc<0)
@@ -123,13 +123,24 @@ NVMeIoEx::decode_sc(int sc)
             CASE_TO_STR(NVME_SC_COMPARE_FAILED);
             CASE_TO_STR(NVME_SC_ACCESS_DENIED);
             CASE_TO_STR(NVME_SC_UNWRITTEN_BLOCK);
+
+            /*
+             * General status code from DiskIoEx
+             */
+            CASE_TO_STR(NOT_SUPPORT_YET);
+            CASE_TO_STR(RESOURCE_INVALID);
+            CASE_TO_STR(TASK_CANCEL);
+            CASE_TO_STR(NOT_EXPECTED_RESULT);
+            CASE_TO_STR(DATA_MIS_COMPARE);
+            CASE_TO_STR(TIME_STAMP_MIS_MATCH);
+            CASE_TO_STR(TIME_STAMP_NOT_FOUND);
             default:
                 desc = lstr.sprintf("0x%04X (sc=0x%02X, sct=0x%02X)", sc, (sc>>0)&0xFF, (sc>>8)&0x07);
                 break;
         }
     }
     return desc;
-#undef CASE_TO_STR  //(n)		case n:desc = #n;break
+#undef CASE_TO_STR  //(n)   case n:desc = #n;break
 }
 //---------------------------------------------------------------------------
 void 

@@ -128,7 +128,7 @@ DiskIoEx::get_block_size(void)
 std::string
 DiskIoEx::decode_sc(int sc)
 {
-#define CASE_TO_STR(n)		case n:desc = #n;break
+#define CASE_TO_STR(n)      case n:desc = #n;break
     std::string desc;
     LegacyString lstr;
     if(sc<0)
@@ -137,21 +137,22 @@ DiskIoEx::decode_sc(int sc)
     }
     else
     {//nomal status code
-		switch(sc)
-		{
+        switch(sc)
+        {
+            CASE_TO_STR(NOT_SUPPORT_YET);
             CASE_TO_STR(RESOURCE_INVALID);
             CASE_TO_STR(TASK_CANCEL);
             CASE_TO_STR(NOT_EXPECTED_RESULT);                        
             CASE_TO_STR(DATA_MIS_COMPARE);
             CASE_TO_STR(TIME_STAMP_MIS_MATCH);
             CASE_TO_STR(TIME_STAMP_NOT_FOUND);
-			default:
-				desc = lstr.sprintf("Undefined");
-				break;
+            default:
+                desc = lstr.sprintf("Undefined");
+                break;
         }
     }
     return desc;
-#undef CASE_TO_STR  //(n)		case n:desc = #n;break
+#undef CASE_TO_STR  //(n)   case n:desc = #n;break
 }
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
