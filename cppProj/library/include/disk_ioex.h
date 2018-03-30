@@ -34,6 +34,7 @@ class DiskIoEx : public DiskIO
 {
 public:
     enum{
+        DISK_IOEX_SUCCESS=0,
         NOT_SUPPORT_YET=(1<<16),
         RESOURCE_INVALID,
         TASK_CANCEL,

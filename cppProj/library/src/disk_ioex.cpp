@@ -139,6 +139,7 @@ DiskIoEx::decode_sc(int sc)
     {//nomal status code
         switch(sc)
         {
+            CASE_TO_STR(DISK_IOEX_SUCCESS);
             CASE_TO_STR(NOT_SUPPORT_YET);
             CASE_TO_STR(RESOURCE_INVALID);
             CASE_TO_STR(TASK_CANCEL);
