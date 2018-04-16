@@ -1,12 +1,12 @@
 #include "thread_locker.h"
-#include <unistd.h>
+//#include <unistd.h>
 //---------------------------------------------------------------------------
 void 
-ThreadLocker::acquire(unsigned int usec)
+ThreadLocker::acquire(void)
 {
     while(this->__locked)
     {
-        usleep(usec);
+        //usleep(usec);
     }
     this->__locked=true;
 };
