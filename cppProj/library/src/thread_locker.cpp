@@ -1,12 +1,12 @@
 #include "thread_locker.h"
-//#include <unistd.h>
+#include <unistd.h>
 //---------------------------------------------------------------------------
 void 
-ThreadLocker::acquire(void)
+ThreadLocker::acquire(unsigned int usec)
 {
     while(this->__locked)
     {
-        //usleep(usec);
+        usleep(usec);
     }
     this->__locked=true;
 };
@@ -29,4 +29,31 @@ ThreadLocker::~ThreadLocker(void)
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+void
+ThreadSemaphore::acquire(unsigned int usec)
+{
+    while(this->__count==0)
+    {
+        usleep(usec);
+    }
+    this->__count--;
+}
+//---------------------------------------------------------------------------
+void
+ThreadSemaphore::release(void)
+{
+    this->__count++;
+}
+//---------------------------------------------------------------------------
+ThreadSemaphore::ThreadSemaphore(unsigned int count)
+{
+    //limit minimum to 1
+    this->__count=(count==0)?1:count;
+}
+//---------------------------------------------------------------------------
+ThreadSemaphore::~ThreadSemaphore(void)
+{
+}
 //---------------------------------------------------------------------------
